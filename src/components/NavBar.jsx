@@ -12,19 +12,19 @@
   }
   ```
 */
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useState } from 'react'
-import { Switch } from '@headlessui/react'
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
+import { Switch } from "@headlessui/react";
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(" ");
 }
 
 export default function NavBar() {
-    const [enabled, setEnabled] = useState(false)
+    const [enabled, setEnabled] = useState(false);
 
     return (
         <Disclosure as="nav">
@@ -46,7 +46,7 @@ export default function NavBar() {
                                     />
                                 </div>
 
-                                <div className="hidden lg:ml-24 lg:flex lg:space-x-10">
+                                <div className="hidden lg:ml-24 lg:flex lg:space-x-10 justify-center">
                                     <a
                                         href="#"
                                         className="inline-flex items-center border-b-2 border-green-500 px-1 pt-1 text-sm font-medium text-gray-900"
@@ -71,27 +71,45 @@ export default function NavBar() {
                                     >
                                         Forum
                                     </a>
-                                </div>
-                            </div>
-                            <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
-                                <div className="w-100 max-w-lg lg:max-w-xs">
-                                    <label htmlFor="search" className="sr-only">
-                                        Search
-                                    </label>
-                                    <div className="relative">
-                                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                            <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                                    <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-start">
+                                        <div className="w-100 max-w-lg lg:max-w-xs">
+                                            <label htmlFor="search" className="sr-only">
+                                                Search
+                                            </label>
+                                            <div className="relative">
+                                                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <MagnifyingGlassIcon
+                                                        className="h-5 w-5 text-gray-400"
+                                                        aria-hidden="true"
+                                                    />
+                                                </div>
+                                                <input
+                                                    id="search"
+                                                    name="search"
+                                                    className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-green-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-green-500 sm:text-sm"
+                                                    placeholder="Search"
+                                                    type="search"
+                                                />
+                                            </div>
                                         </div>
-                                        <input
-                                            id="search"
-                                            name="search"
-                                            className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-green-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-green-500 sm:text-sm"
-                                            placeholder="Search"
-                                            type="search"
-                                        />
+                                    </div>
+                                    <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
+                                        <button
+                                            type="button"
+                                            className="inline-flex items-center text-xs font-medium text-grey-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                                        >
+                                            Sign in
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="inline-flex items-center rounded border border-transparent bg-green-500 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                                        >
+                                            Sign up
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+
                             <div className="flex items-center lg:hidden">
                                 {/* Mobile menu button */}
                                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
@@ -104,34 +122,21 @@ export default function NavBar() {
                                 </Disclosure.Button>
                             </div>
                             <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
-                                <button
-                                    type="button"
-                                    className="inline-flex items-center text-xs font-medium text-grey-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                                >
-                                    Sign in
-                                </button>
-                                <button
-                                    type="button"
-                                    className="inline-flex items-center rounded border border-transparent bg-green-500 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                                >
-                                    Sign up
-                                </button>
-
                                 {/* dark/light toggle */}
                                 <Switch
                                     checked={enabled}
                                     onChange={setEnabled}
                                     className={classNames(
-                                        enabled ? 'bg-black' : 'bg-gray-200',
-                                        'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2'
+                                        enabled ? "bg-black" : "bg-gray-200",
+                                        "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                                     )}
                                 >
                                     <span className="sr-only">Use setting</span>
                                     <span
                                         aria-hidden="true"
                                         className={classNames(
-                                            enabled ? 'translate-x-5' : 'translate-x-0',
-                                            'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out'
+                                            enabled ? "translate-x-5" : "translate-x-0",
+                                            "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
                                         )}
                                     />
                                 </Switch>
@@ -147,82 +152,33 @@ export default function NavBar() {
                                 href="#"
                                 className="block border-l-4 border-green-500 bg-green-50 py-2 pl-3 pr-4 text-base font-medium text-green-700"
                             >
-                                Dashboard
+                                Home
                             </Disclosure.Button>
                             <Disclosure.Button
                                 as="a"
                                 href="#"
                                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
                             >
-                                Team
+                                Careers
                             </Disclosure.Button>
                             <Disclosure.Button
                                 as="a"
                                 href="#"
                                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
                             >
-                                Projects
+                                Roadmap
                             </Disclosure.Button>
                             <Disclosure.Button
                                 as="a"
                                 href="#"
                                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
                             >
-                                Calendar
+                                Forum
                             </Disclosure.Button>
-                        </div>
-                        <div className="border-t border-gray-200 pt-4 pb-3">
-                            <div className="flex items-center px-4">
-                                <div className="flex-shrink-0">
-                                    <img
-                                        className="h-10 w-10 rounded-full"
-                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                        alt=""
-                                    />
-                                </div>
-                                <div className="ml-3">
-                                    <div className="text-base font-medium text-gray-800">Tom Cook</div>
-                                    <div className="text-sm font-medium text-gray-500">tom@example.com</div>
-                                </div>
-                                <button
-                                    type="button"
-                                    className="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                                >
-                                    <span className="sr-only">View notifications</span>
-                                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                </button>
-                            </div>
-                            <div className="mt-3 space-y-1">
-                                <Disclosure.Button
-                                    as="a"
-                                    href="#"
-                                    className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                                >
-                                    Your Profile
-                                </Disclosure.Button>
-                                <Disclosure.Button
-                                    as="a"
-                                    href="#"
-                                    className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                                >
-                                    Settings
-                                </Disclosure.Button>
-                                <Disclosure.Button
-                                    as="a"
-                                    href="#"
-                                    className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                                >
-                                    Sign out
-                                </Disclosure.Button>
-                            </div>
                         </div>
                     </Disclosure.Panel>
-
                 </>
             )}
-
         </Disclosure>
-
-    )
+    );
 }
-
