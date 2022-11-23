@@ -23,7 +23,7 @@ function classNames(...classes) {
 
 export default function App() {
     return (
-        <Disclosure as="nav" className="bg-white shadow">
+        <Disclosure as="nav">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
@@ -43,7 +43,6 @@ export default function App() {
                                 </div>
 
                                 <div className="hidden lg:ml-24 lg:flex lg:space-x-10">
-                                    {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                                     <a
                                         href="#"
                                         className="inline-flex items-center border-b-2 border-green-500 px-1 pt-1 text-sm font-medium text-gray-900"
@@ -71,7 +70,7 @@ export default function App() {
                                 </div>
                             </div>
                             <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
-                                <div className="w-full max-w-lg lg:max-w-xs">
+                                <div className="w-100 max-w-lg lg:max-w-xs">
                                     <label htmlFor="search" className="sr-only">
                                         Search
                                     </label>
@@ -82,7 +81,7 @@ export default function App() {
                                         <input
                                             id="search"
                                             name="search"
-                                            className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                                            className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-green-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-green-500 sm:text-sm"
                                             placeholder="Search"
                                             type="search"
                                         />
@@ -91,7 +90,7 @@ export default function App() {
                             </div>
                             <div className="flex items-center lg:hidden">
                                 {/* Mobile menu button */}
-                                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
                                     <span className="sr-only">Open main menu</span>
                                     {open ? (
                                         <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -100,10 +99,10 @@ export default function App() {
                                     )}
                                 </Disclosure.Button>
                             </div>
-                            <div className="hidden lg:ml-4 lg:flex lg:items-center">
+                            <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-10">
                                 <button
                                     type="button"
-                                    className="inline-flex items-center rounded border border-transparent px-2.5 py-1.5 text-xs font-medium text-grey-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                    className="inline-flex items-center text-xs font-medium text-grey-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                                 >
                                     Sign in
                                 </button>
@@ -117,7 +116,7 @@ export default function App() {
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative ml-4 flex-shrink-0">
                                     <div>
-                                        <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                        <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                                             <span className="sr-only">Open user menu</span>
                                             <img
                                                 className="h-8 w-8 rounded-full"
@@ -175,11 +174,11 @@ export default function App() {
 
                     <Disclosure.Panel className="lg:hidden">
                         <div className="space-y-1 pt-2 pb-3">
-                            {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
+                            {/* Current: "bg-green-50 border-green-500 text-green-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
                             <Disclosure.Button
                                 as="a"
                                 href="#"
-                                className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
+                                className="block border-l-4 border-green-500 bg-green-50 py-2 pl-3 pr-4 text-base font-medium text-green-700"
                             >
                                 Dashboard
                             </Disclosure.Button>
@@ -220,7 +219,7 @@ export default function App() {
                                 </div>
                                 <button
                                     type="button"
-                                    className="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                    className="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                                 >
                                     <span className="sr-only">View notifications</span>
                                     <BellIcon className="h-6 w-6" aria-hidden="true" />
