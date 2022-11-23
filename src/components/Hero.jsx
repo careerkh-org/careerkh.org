@@ -29,14 +29,14 @@ export default function Hero() {
         <div className="relative overflow-hidden">
 
             <main>
-                <div className="bg-white pt-10 sm:pt-16 lg:overflow-hidden lg:pt-8 lg:pb-14">
+                <div className="bg-white pt-10 sm:pt-16 lg:overflow-hidden lg:pt-0 lg:pb-14">
                     <div className="mx-auto max-w-7xl lg:px-8">
                         <div className="lg:grid lg:grid-cols-2 lg:gap-8">
                             <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:flex lg:items-center lg:px-0 lg:text-left">
                                 <div className="lg:py-24">
                                     <a
                                         href="#"
-                                        className="inline-flex items-center rounded-full bg-purple-400 p-1 pr-2 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base"
+                                        className="inline-flex items-center rounded-full bg-purple-600 p-1 pr-2 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base"
                                     >
                                         <span className="rounded-full bg-green-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">
                                             We'RE WORKING
@@ -45,7 +45,7 @@ export default function Hero() {
                                         <ChevronRightIcon className="ml-2 h-5 w-5 text-gray-500" aria-hidden="true" />
                                     </a>
                                     <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                                        <span className="block text-green-400">Career Description</span>
+                                        <span className="block text-green-600">Career Description</span>
                                         <span className="block ">in Cambodia</span>
                                     </h1>
                                     <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
@@ -66,13 +66,31 @@ export default function Hero() {
                                                 </div>
                                             </div>
 
+                                            <div className="sm:flex justify-between">
+                                                <div className=""><h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                                                    <span className="block text-green-600">30+</span>
+                                                </h1>
+                                                    <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                                                        Categories
+                                                    </p></div>
+                                                <div className=""><h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                                                    <span className="block text-green-600">100+</span>
+                                                </h1>
+                                                    <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                                                        Carrers
+                                                    </p></div>
+                                                    <div className=""><h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                                                    <span className="block text-green-600">20+</span>
+                                                </h1>
+                                                    <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                                                        Roadmap
+                                                    </p></div>
+                                            </div>
 
-                                            <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                                                <span className="block text-green-400">30+</span>
-                                            </h1>
-                                            <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                                                categories
-                                            </p>
+
+
+
+
                                         </div>
                                     </div>
                                 </div>
