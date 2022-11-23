@@ -32,12 +32,12 @@ export default function NavBar() {
                                 <div className="flex flex-shrink-0 items-center">
                                     <img
                                         className="block h-20 w-auto lg:hidden"
-                                        src="public/assets/images/careerkh png text.png"
+                                        src="src/assets/images/careerkh_hr_text.png"
                                         alt="Company"
                                     />
                                     <img
                                         className="hidden h-20 w-auto lg:block"
-                                        src="public/assets/images/careerkh png text.png"
+                                        src="src/assets/images/careerkh_hr_text.png"
                                         alt="Company"
                                     />
                                 </div>
