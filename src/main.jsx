@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
 import './index.css'
-import Example from './navbar'
+import Error404Page from './Error404Page'
+import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Example></Example>
+    <App></App>
+    {/* <Error404Page></Error404Page> */}
   </React.StrictMode>
 )
