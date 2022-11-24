@@ -29,26 +29,26 @@ export default function Hero() {
         <div className="relative overflow-hidden">
 
             <main>
-                <div className="bg-white pt-10 sm:pt-16 lg:overflow-hidden lg:pt-0 lg:pb-14">
+                <div className=" pt-2 sm:pt-2 lg:overflow-hidden lg:pt-0 lg:pb-1">
                     <div className="mx-auto max-w-7xl lg:px-8">
                         <div className="lg:grid lg:grid-cols-2 lg:gap-8">
                             <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:flex lg:items-center lg:px-0 lg:text-left">
-                                <div className="lg:py-24">
+                                <div className="lg:py-8">
                                     <a
                                         href="#"
-                                        className="inline-flex items-center rounded-full bg-purple-600 p-1 pr-2 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base"
+                                        className="inline-flex items-center rounded-full bg-secondary p-1 pr-2 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base"
                                     >
-                                        <span className="rounded-full bg-green-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">
-                                            We'RE WORKING
+                                        <span className="rounded-full bg-primary px-3 py-0.5 text-sm font-semibold leading-5 text-white font-inter">
+                                            WE'RE WORKING
                                         </span>
-                                        <span className="ml-4 text-sm">Visit our contact page</span>
+                                        <span className="ml-4 text-sm font-inter">Visit our contact page</span>
                                         <ChevronRightIcon className="ml-2 h-5 w-5 text-gray-500" aria-hidden="true" />
                                     </a>
-                                    <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                                        <span className="block text-green-600">Career Description</span>
-                                        <span className="block ">in Cambodia</span>
+                                    <h1 className="mt-4 text-4xl tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl font-righteous">
+                                        <span className="block text-primary">Career Description</span>
+                                        <span className="block ml-40">in Cambodia</span>
                                     </h1>
-                                    <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                                    <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl font-inter font-regular">
                                         We provide the information about career in cambodia.
                                         Over 100 career around the country. Find your best career
                                         to work in Careerkh.
@@ -58,8 +58,8 @@ export default function Hero() {
                                             <div className="sm:flex">
                                                 <div className="mt-0 sm:mt-0 sm:ml-0">
                                                     <button
-                                                        type="submit"
-                                                        className="block w-full rounded-md bg-green-500 py-3 px-4 font-medium text-white shadow hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-offset-2 focus:ring-offset-gray-900"
+
+                                                        className="block w-full rounded-md bg-primary py-3 px-4 font-medium text-white shadow hover:bg-primary focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-offset-2 focus:ring-offset-gray-900 font-inter"
                                                     >
                                                         Explore
                                                     </button>
@@ -67,24 +67,30 @@ export default function Hero() {
                                             </div>
 
                                             <div className="sm:flex justify-between">
-                                                <div className=""><h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                                                    <span className="block text-green-600">30+</span>
-                                                </h1>
-                                                    <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                                                <div className="">
+                                                    <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                                                        <span className="block text-primary sm:flex justify-center">30+</span>
+                                                    </h1>
+                                                    <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl font-inter">
                                                         Categories
-                                                    </p></div>
-                                                <div className=""><h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                                                    <span className="block text-green-600">100+</span>
-                                                </h1>
-                                                    <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                                                    </p>
+                                                </div>
+                                                <div className="">
+                                                    <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                                                        <span className="block text-primary ">100+</span>
+                                                    </h1>
+                                                    <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl font-inter">
                                                         Carrers
-                                                    </p></div>
-                                                    <div className=""><h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                                                    <span className="block text-green-600">20+</span>
-                                                </h1>
-                                                    <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                                                    </p>
+                                                </div>
+                                                <div className="">
+                                                    <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                                                        <span className="block text-primary">20+</span>
+                                                    </h1>
+                                                    <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl font-inter">
                                                         Roadmap
-                                                    </p></div>
+                                                    </p>
+                                                </div>
                                             </div>
 
 

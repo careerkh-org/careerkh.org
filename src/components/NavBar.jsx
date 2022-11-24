@@ -31,7 +31,7 @@ export default function NavBar() {
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
-                        <div className="flex h-16 justify-between">
+                        <div className="flex h-16 justify-between ">
                             <div className="flex px-2 lg:px-0">
                                 <div className="flex flex-shrink-0 items-center">
                                     <img
@@ -49,31 +49,31 @@ export default function NavBar() {
                                 <div className="hidden lg:ml-24 lg:flex lg:space-x-10 justify-center">
                                     <a
                                         href="#"
-                                        className="inline-flex items-center border-b-2 border-green-500 px-1 pt-1 text-sm font-medium text-gray-900"
+                                        className="inline-flex items-center border-b-2 border-green-500 px-1 pt-1 text-sm font-medium text-gray-900 font-inter"
                                     >
                                         Home
                                     </a>
                                     <a
                                         href="#"
-                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter"
                                     >
                                         Careers
                                     </a>
                                     <a
                                         href="#"
-                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter"
                                     >
                                         Roadmap
                                     </a>
                                     <a
                                         href="#"
-                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter"
                                     >
                                         Forum
                                     </a>
                                     <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-start">
                                         <div className="w-100 max-w-lg lg:max-w-xs">
-                                            <label htmlFor="search" className="sr-only">
+                                            <label htmlFor="search" className="sr-only font-inter">
                                                 Search
                                             </label>
                                             <div className="relative">
@@ -96,13 +96,13 @@ export default function NavBar() {
                                     <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
                                         <button
                                             type="button"
-                                            className="inline-flex items-center text-xs font-medium text-grey-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                                            className="inline-flex items-center text-xs font-medium text-grey-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 font-inter"
                                         >
                                             Sign in
                                         </button>
                                         <button
                                             type="button"
-                                            className="inline-flex items-center rounded border border-transparent bg-green-500 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                                            className="inline-flex items-center rounded border border-transparent bg-green-500 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 font-inter"
                                         >
                                             Sign up
                                         </button>
@@ -150,28 +150,28 @@ export default function NavBar() {
                             <Disclosure.Button
                                 as="a"
                                 href="#"
-                                className="block border-l-4 border-green-500 bg-green-50 py-2 pl-3 pr-4 text-base font-medium text-green-700"
+                                className="block border-l-4 border-green-500 bg-green-50 py-2 pl-3 pr-4 text-base font-medium text-green-700 font-inter"
                             >
                                 Home
                             </Disclosure.Button>
                             <Disclosure.Button
                                 as="a"
                                 href="#"
-                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
+                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
                             >
                                 Careers
                             </Disclosure.Button>
                             <Disclosure.Button
                                 as="a"
                                 href="#"
-                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
+                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
                             >
                                 Roadmap
                             </Disclosure.Button>
                             <Disclosure.Button
                                 as="a"
                                 href="#"
-                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
+                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
                             >
                                 Forum
                             </Disclosure.Button>
