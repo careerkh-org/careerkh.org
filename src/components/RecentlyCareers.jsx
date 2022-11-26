@@ -1,60 +1,51 @@
 
-const posts = [
+const careers = [
     {
         title: 'Back End Developer',
         href: '#',
         category: { name: 'Article', href: '#' },
         description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
-        date: 'Mar 16, 2020',
-        datetime: '2020-03-16',
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
+        job: 'Full-Time',
+        location: 'Remote',
+        salary: '500k',
+        date: 'Jaunary 9, 2022',
         imageUrl:
             'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-        readingTime: '6 min',
-        author: {
-            name: 'Roel Aufderehar',
-            href: '#',
-            imageUrl:
-                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        },
+
     },
     {
         title: 'Front End Developer',
         href: '#',
-        category: { name: 'Video', href: '#' },
+        category: { name: 'Article', href: '#' },
         description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facilis asperiores porro quaerat doloribus, eveniet dolore. Adipisci tempora aut inventore optio animi., tempore temporibus quo laudantium.',
-        date: 'Mar 10, 2020',
-        datetime: '2020-03-10',
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
+        job: 'Part-Time',
+        location: 'Remote',
+        salary: '500k',
+        date: 'Jaunary 9, 2022',
         imageUrl:
-            'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-        readingTime: '4 min',
-        author: {
-            name: 'Brenna Goyette',
-            href: '#',
-            imageUrl:
-                'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        },
+            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+
     },
     {
-        title: 'Hybrid Developer',
+        title: 'Back End Developer',
         href: '#',
-        category: { name: 'Case Study', href: '#' },
+        category: { name: 'Article', href: '#' },
         description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint harum rerum voluptatem quo recusandae magni placeat saepe molestiae, sed excepturi cumque corporis perferendis hic.',
-        date: 'Feb 12, 2020',
-        datetime: '2020-02-12',
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
+        job: 'Full-Time',
+        location: 'Remote',
+        salary: '500k',
+        date: 'Jaunary 9, 2022',
         imageUrl:
-            'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-        readingTime: '11 min',
-        author: {
-            name: 'Daniela Metz',
-            href: '#',
-            imageUrl:
-                'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        },
+            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+
     },
+
 ]
+
+
 
 export default function RecentlyCareers() {
     return (
@@ -70,43 +61,48 @@ export default function RecentlyCareers() {
                     </p>
                 </div>
                 <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-                    {posts.map((post) => (
-                        <div key={post.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                    {careers.map((career) => (
+                        <div key={career.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
                             <div className="flex-shrink-0">
-                                <img className="h-48 w-full object-cover" src={post.imageUrl} alt="" />
+                                <img className="h-48 w-full object-cover" src={career.imageUrl} alt="" />
                             </div>
                             <div className="flex flex-1 flex-col justify-between bg-white p-6">
                                 <div className="flex-1">
-                                    <p className="text-sm font-medium text-green-600">
-                                        <a href={post.category.href} className="hover:underline">
-                                            {post.category.name}
+                                    <p className="text-sm font-medium text-primary_600">
+                                        <a href={career.category.href} className="hover:underline">
+                                            {career.category.name}
                                         </a>
                                     </p>
-                                    <a href={post.href} className="mt-2 block">
-                                        <p className="text-xl font-semibold text-gray-900">{post.title}</p>
-                                        <p className="mt-3 text-base text-gray-500">{post.description}</p>
+                                    <a href={career.href} className="mt-2 block">
+                                        <p className="text-xl font-semibold text-gray-900">{career.title}</p>
+                                        <p className="my-3 text-base text-gray-500">{career.description}</p>
+
+                                        <div className="flex align-middle items-center text-center py-2">
+                                            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                            <p className="mx-3 text-base text-gray-500">{career.job}</p>
+                                        </div>
+
+                                        <div className="flex align-middle items-center text-center py-2">
+                                            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>                                            <p className="mx-3 text-base text-gray-500">{career.location}</p>
+                                        </div>
+
+                                        <div className="flex align-middle items-center text-center py-2">
+                                            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>                                            <p className="mx-3 text-base text-gray-500">{career.salary}</p>
+                                        </div>
+
+                                        <div className="flex align-middle items-center text-center py-2">
+                                            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>                                            <p className="mx-3 text-base text-gray-500">{career.date}</p>
+                                        </div>
+
                                     </a>
                                 </div>
-                                <div className="mt-6 flex items-center">
-                                    <div className="flex-shrink-0">
-                                        <a href={post.author.href}>
-                                            <span className="sr-only">{post.author.name}</span>
-                                            <img className="h-10 w-10 rounded-full" src={post.author.imageUrl} alt="" />
-                                        </a>
-                                    </div>
-                                    <div className="ml-3">
-                                        <p className="text-sm font-medium text-gray-900">
-                                            <a href={post.author.href} className="hover:underline">
-                                                {post.author.name}
-                                            </a>
-                                        </p>
-                                        <div className="flex space-x-1 text-sm text-gray-500">
-                                            <time dateTime={post.datetime}>{post.date}</time>
-                                            <span aria-hidden="true">&middot;</span>
-                                            <span>{post.readingTime} read</span>
-                                        </div>
-                                    </div>
-                                </div>
+
+                                <button
+                                    type="button"
+                                    className="inline-flex items-center rounded-md border border-transparent bg-primary_600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none focus:ring-2 focus:ring-primary_500 focus:ring-offset-2 justify-center mt-6"
+                                >
+                                    More
+                                </button>
                             </div>
                         </div>
                     ))}
