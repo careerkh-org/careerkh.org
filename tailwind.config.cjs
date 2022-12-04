@@ -10,19 +10,14 @@ module.exports = {
     extend: {
       colors: {
         primary_200: "#afd995",
-
         primary_200: "#a2d383",
-
         primary_300: "#95cd71",
-
         primary_400: "#87c660",
-
         primary_500: "#7AC04E",
         primary_600: "#6ead46",
         primary_700: "#629a3e",
         primary_800: "#558637",
         primary_900: "#49732f",
-
         secondary: "#AC77B1",
       },
       fontFamily: {
