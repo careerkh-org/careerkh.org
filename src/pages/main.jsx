@@ -15,13 +15,5 @@ import FAQ from '../components/FAQ'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <NavBar />
-    <Hero />
-    <SelectSearch />
-    <RecentlyCareers />
-    <Bullets />
-    <MediaOnRight />
-    <StackedCards />
-    <FAQ />
-    <Footer />
   </React.StrictMode>
 )
