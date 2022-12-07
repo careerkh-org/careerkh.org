@@ -106,7 +106,7 @@ export default function Hero() {
                                     {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
                                     <img
                                         className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-100 lg:max-w-none"
-                                        src="src/public/images/hero.svg"
+                                        src="public/images/hero.svg"
                                         alt=""
                                     />
                                 </div>

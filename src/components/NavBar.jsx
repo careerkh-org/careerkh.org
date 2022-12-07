@@ -39,12 +39,12 @@ export default function NavBar() {
                                     <Link to="/">
                                     <img
                                         className="block h-20 w-auto lg:hidden"
-                                        src="src/public/images/careerkh_hr_text.png"
+                                        src="public/images/careerkh_hr_text.png"
                                         alt="Company"
                                     />
                                     <img
                                         className="hidden h-20 w-auto lg:block"
-                                        src="src/public/images/careerkh_hr_text.png"
+                                        src="public/images/careerkh_hr_text.png"
                                         alt="Company"
                                     />
                                     </Link>
