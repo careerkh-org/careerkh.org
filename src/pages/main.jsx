@@ -1,21 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import '../index.css'
 import NavBar from '../components/NavBar'
-import Hero from '../components/Hero'
-import Footer from '../components/Footer'
-import SelectSearch from '../components/SelectSearch'
-import RecentlyCareers from '../components/RecentlyCareers'
-import FAQ from '../components/FAQ'
+import { Route, Router, Routes } from 'react-router-dom'
+import Home from './home'
+import Careers from './careers'
+import Roadmap from './Roadmap'
+import Forum from './Forum'
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+const main = () => {
+  return (
+    <React.StrictMode>
     <NavBar />
-    <Hero />
-    <SelectSearch />
-    <RecentlyCareers />
-    <FAQ />
-    <Footer />
+    <Routes>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path='/careers' element={<Careers/>}></Route>
+      <Route path='/roadmap' element={<Roadmap/>}></Route>
+      <Route path='/forum' element={<Forum/>}></Route>
+    </Routes>
+    
   </React.StrictMode>
-)
+  );
+};
+  
+export default main;
