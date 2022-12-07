@@ -106,7 +106,7 @@ export default function Hero() {
                                     {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
                                     <img
                                         className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-100 lg:max-w-none"
-                                        src="public/images/hero.svg"
+                                        src="https://firebasestorage.googleapis.com/v0/b/careerkh-web.appspot.com/o/images%2Fhero.svg?alt=media&token=58cce72d-377f-4a16-9710-ef374a5f3d9b"
                                         alt=""
                                     />
                                 </div>

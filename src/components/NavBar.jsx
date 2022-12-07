@@ -39,12 +39,12 @@ export default function NavBar() {
                                     <Link to="/">
                                     <img
                                         className="block h-20 w-auto lg:hidden"
-                                        src="public/images/careerkh_hr_text.png"
+                                        src="https://firebasestorage.googleapis.com/v0/b/careerkh-web.appspot.com/o/images%2Fcareerkh_hr_text.png?alt=media&token=ed87436f-c381-43d8-a49e-785a41e712a2"
                                         alt="Company"
                                     />
                                     <img
                                         className="hidden h-20 w-auto lg:block"
-                                        src="public/images/careerkh_hr_text.png"
+                                        src="https://firebasestorage.googleapis.com/v0/b/careerkh-web.appspot.com/o/images%2Fcareerkh_hr_text.png?alt=media&token=ed87436f-c381-43d8-a49e-785a41e712a2"
                                         alt="Company"
                                     />
                                     </Link>
