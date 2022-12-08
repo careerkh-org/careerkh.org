@@ -1,14 +1,19 @@
 import React from 'react'
 import Footer from '../components/Footer'
-import  Hero  from '../components/Hero'
+import Hero from '../components/Hero'
+import RecentlyCareers from '../components/RecentlyCareers'
+import FAQ from '../components/FAQ'
+
 import SelectSearch from '../components/SelectSearch'
 
 const Home = () => {
   return (
     <>
-    <Hero/>
-    <SelectSearch/>
-    <Footer/>
+      <Hero />
+      <SelectSearch />
+      <RecentlyCareers />
+      <FAQ />
+      <Footer />
 
     </>
   )
