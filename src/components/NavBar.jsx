@@ -136,20 +136,28 @@ export default function NavBar() {
                     <Disclosure.Panel className="lg:hidden">
                         <div className="space-y-1 pt-2 pb-3">
                             {/* Current: "bg-green-50 border-green-500 text-green-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
-                            <Disclosure.Button
-                                as="a"
-                                href="#"
-                                className="block border-l-4 border-green-500 bg-green-50 py-2 pl-3 pr-4 text-base font-medium text-green-700 font-inter"
-                            >
-                                Home
-                            </Disclosure.Button>
+                            <Link to="/">
                             <Disclosure.Button
                                 as="a"
                                 href="#"
                                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
                             >
+                                Home
+                            </Disclosure.Button>
+                            </Link>
+
+                            <Link to="/careers">
+                            <Disclosure.Button
+                                as="a"
+                                href="#"
+                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
+                            
+                            >
                                 Careers
                             </Disclosure.Button>
+                            </Link>
+
+                            <Link to="/roadmap">
                             <Disclosure.Button
                                 as="a"
                                 href="#"
@@ -157,6 +165,8 @@ export default function NavBar() {
                             >
                                 Roadmap
                             </Disclosure.Button>
+                            </Link>
+                            <Link to="/forum">
                             <Disclosure.Button
                                 as="a"
                                 href="#"
@@ -164,6 +174,7 @@ export default function NavBar() {
                             >
                                 Forum
                             </Disclosure.Button>
+                            </Link>
                         </div>
                     </Disclosure.Panel>
                 </>
