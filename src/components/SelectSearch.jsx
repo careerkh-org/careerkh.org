@@ -18,7 +18,7 @@ export default function SelectSearch() {
     return (
         <div className="bg-primary" aria-labelledby="footer-heading">
 
-            <div className="mx-auto max-w-7xl py-7 px-4 sm:px-6 lg:py-10 lg:px-8">
+            <div className="mx-auto max-w-7xl py-7 px-4 sm:px-6 lg:py-10 lg:px-8 ">
 
                 <div className=" pt-4 lg:flex lg:items-center lg:justify-evenly xl:mt-0">
 
@@ -27,38 +27,18 @@ export default function SelectSearch() {
 
                         <div>
                             <label htmlFor="location" className="block text-sm font-medium text-gray-700">
-                                Categories
+                                Industry
                             </label>
                             <select
                                 id="location"
                                 name="location"
                                 className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
                                 defaultValue="Canada"
-                            >
-                                <option>Information Technology1 </option>
-                                <option>Information Technology2</option>
-                                <option>Information Technology3</option>
-                            </select>
-                        </div>
+                            >                                <option>Information Technology </option>
 
-                    </div>
+                                <option>Accounting</option>
+                                <option>Administration</option>
 
-                    <div className="mt-4 sm:flex sm:max-w-md lg:mt-0">
-
-
-                        <div>
-                            <label htmlFor="location" className="block text-sm font-medium text-gray-700">
-                                Career
-                            </label>
-                            <select
-                                id="location"
-                                name="location"
-                                className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
-                                defaultValue="Canada"
-                            >
-                                <option>Information Technology</option>
-                                <option>Information Technology</option>
-                                <option>Information Technology</option>
                             </select>
                         </div>
 
@@ -77,9 +57,30 @@ export default function SelectSearch() {
                                 className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
                                 defaultValue="Canada"
                             >
-                                <option>Information Technology</option>
-                                <option>Information Technology</option>
-                                <option>Information Technology</option>
+                                <option>WEB</option>
+                                <option>MOBILE</option>
+                                <option>PC</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div className="mt-4 sm:flex sm:max-w-md lg:mt-0">
+
+
+                        <div>
+                            <label htmlFor="location" className="block text-sm font-medium text-gray-700">
+                                Role
+                            </label>
+                            <select
+                                id="location"
+                                name="location"
+                                className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
+                                defaultValue="Canada"
+                            >
+                                <option>JR Developer</option>
+                                <option>SR Developer</option>
+                                <option>Intern Developer</option>
                             </select>
                         </div>
 
