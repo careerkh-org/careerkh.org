@@ -33,7 +33,7 @@ export default function NavBar() {
                 <>
                     <nav>
                         <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
-                            <div className="flex h-16 justify-center ">
+                            <div className="flex h-16 sm:justify-center lg:justify-evenly max-sm:justify-center">
                                 <div className="flex px-2 lg:px-0">
                                     <div className="flex flex-shrink-0 items-center">
                                         <Link to="/">
@@ -132,14 +132,6 @@ export default function NavBar() {
                         </div>
                     </nav>
                     <Outlet />
-
-
-
-
-
-
-
-
 
                     <Disclosure.Panel className="lg:hidden">
                         <div className="space-y-1 pt-2 pb-3">
