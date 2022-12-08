@@ -22,7 +22,7 @@ export default function SelectSearch() {
 
                 <div className=" pt-4 lg:flex lg:items-center lg:justify-evenly xl:mt-0">
 
-                    <div className="mt-4 sm:flex sm:max-w-md lg:mt-0">
+                    <div className="mt-42 sm:flex sm:max-w-md lg:mt-0">
 
 
                         <div>
@@ -87,19 +87,19 @@ export default function SelectSearch() {
 
                     <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6 pt-8">
 
-                            <button
-                                type="button"
-                                className="inline-flex items-center text-xs font-medium text-grey-400 focus:outline-none focus:ring-offset-2 font-inter text-gray-200"
-                            >
-                                Clear
-                            </button>
-                            <button
-                                type="button"
-                                className="inline-flex items-center rounded border border-transparent bg-green-500 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 font-inter"
-                            >
-                                Submit
-                            </button>
-                        </div>
+                        <button
+                            type="button"
+                            className="inline-flex items-center text-xs font-medium text-grey-400 focus:outline-none focus:ring-offset-2 font-inter text-gray-200"
+                        >
+                            Clear
+                        </button>
+                        <button
+                            type="button"
+                            className="inline-flex items-center rounded border border-transparent bg-green-500 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 font-inter"
+                        >
+                            Submit
+                        </button>
+                    </div>
 
 
                 </div>
