@@ -1,56 +1,20 @@
-
-const careers = [
-    {
-        position: 'Back End Developer',
-        href: '#',
-        industry: { name: 'Information Technology', href: '#' },
-        description: '',
-        caption:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
-        term: 'Full-Time',
-        location: 'Remote',
-        salary: '500k',
-        date: 'Jaunary 9, 2022',
-        imageUrl:
-            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-
-    },
-    {
-        position: 'Front End Developer',
-        href: '#',
-        industry: { name: 'Information Technology', href: '#' }, description: '',
-
-        caption:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
-        term: 'Part-Time',
-        location: 'Remote',
-        salary: '500k',
-        date: 'Jaunary 9, 2022',
-        imageUrl:
-            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-
-    },
-    {
-        position: 'Back End Developer',
-        href: '#',
-        industry: { name: 'Information Technology', href: '#' }, description: '',
-
-        caption:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
-        term: 'Full-Time',
-        location: 'Remote',
-        salary: '500k',
-        date: 'Jaunary 9, 2022',
-        imageUrl:
-            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-
-    },
-
-]
-
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 
 export default function RecentlyCareers() {
+    const [ careers, setCareers ] = useState([])
+
+    useEffect(() => {
+        axios.get('http://careerkh-env.eba-iambizts.ap-southeast-1.elasticbeanstalk.com/api/careers')
+            .then(res => {
+                console.log(res)
+                setCareers(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
     return (
         <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-14">
             <div className="absolute inset-0">
@@ -61,6 +25,7 @@ export default function RecentlyCareers() {
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Recently Careers</h2>
                     <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
+
                     </p>
                 </div>
                 <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
@@ -73,7 +38,7 @@ export default function RecentlyCareers() {
                                 <div className="flex-1">
                                     <p className="text-sm font-medium text-primary_600">
                                         <a href={career.industry.href} className="hover:underline">
-                                            {career.industry.name}
+                                            {career.industry}
                                         </a>
                                     </p>
                                     <a href={career.href} className="mt-2 block">
