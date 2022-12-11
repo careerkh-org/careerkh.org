@@ -13,10 +13,10 @@ export default function NavBar() {
             {({ open }) => (
                 <>
                     <nav>
-                        <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
-                            <div className="flex h-16 sm:justify-center lg:justify-evenly max-sm:justify-center">
-                                <div className="flex px-2 lg:px-0">
-                                    <div className="flex flex-shrink-0 items-center">
+                        <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8 ">
+                            <div className="flex h-16 sm:justify-center lg:justify-evenly max-sm:justify-center ">
+                                <div className="flex px-2 lg:px-0 ">
+                                    <div className="flex flex-shrink-0 items-center ">
                                         <NavLink to="/" >
                                             <img
                                                 className="block h-20 w-auto lg:hidden"
@@ -31,7 +31,7 @@ export default function NavBar() {
                                         </NavLink>
                                     </div>
 
-                                    <div className="hidden lg:ml-24 lg:flex items-center lg:space-x-10 justify-center">
+                                    <div className="hidden lg:ml-24 lg:flex items-center lg:space-x-10 justify-center pl-28">
                                         <NavLink
                                             to="/" className={({ isActive }) =>
                                                 isActive ? 'inline-flex items-center border-b-2 border-primary  px-1 pt-1 text-sm font-medium text-black hover:border-gray-300 hover:text-primary_700 font-inter' : 'inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter'
@@ -66,7 +66,7 @@ export default function NavBar() {
                                         >
                                             Forum
                                         </NavLink>
-                                        <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-start">
+                                        <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-start pl-28">
                                             <div className="w-100 max-w-lg lg:max-w-xs">
                                                 <label htmlFor="search" className="sr-only font-inter">
                                                     Search
@@ -164,7 +164,7 @@ export default function NavBar() {
                                     Forum
                                 </Disclosure.Button>
                             </NavLink>
-                            
+
                         </div>
                     </Disclosure.Panel>
                 </>
