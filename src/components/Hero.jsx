@@ -48,7 +48,7 @@ export default class Hero extends Component {
                                         </p>
                                         <div className="mt-10 sm:mt-12">
                                             <div action="#" className="sm:mx-auto sm:max-w-xl lg:mx-0">
-                                                <div className="sm:flex">
+                                                <div className="lg:flex">
                                                     <div className="mt-0 sm:mt-0 sm:ml-0">
                                                         <button
 

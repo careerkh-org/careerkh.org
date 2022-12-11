@@ -15,7 +15,6 @@ const position = [
     { id: 2, name: 'APP' },
     { id: 3, name: 'Database' },
 
-    // More users...
 ]
 
 const role = [
@@ -36,25 +35,29 @@ export default function SelectSearch() {
     const [ selectedPosition, setselectedPosition ] = useState(null)
     const [ selectedRole, setselectedRole ] = useState(null)
 
-    const filteredIndustry =
-        industry
+    const filteredIndustry = query ===
+        industry.filter((industry) => {
+            return industry.name.toLowerCase().includes(query.toLowerCase())
+        })
 
-    const filteredPosition =
-        position
-
-    const filteredRole =
-        role
+    const filteredPosition = query === position.filter((position) => {
+        return position.name.toLowerCase().includes(query.toLowerCase())
+    })
+    const filteredRole = query ===
+        role.filter((role) => {
+            return role.name.toLowerCase().includes(query.toLowerCase())
+        })
 
     return (
         <div className="bg-primary_300" aria-labelledby="footer-heading">
 
-            <div className="mx-auto max-w-7xl py-7 px-4 sm:px-6 lg:py-10 lg:px-8">
+            <div className="mx-auto max-w-7xl py-7 px-4 sm:px-6 lg:py-10 lg:px-8 ">
 
-                <div className=" pt-4 lg:flex lg:items-center lg:justify-evenly xl:mt-0">
+                <div className=" pt-4 lg:flex lg:items-center lg:justify-evenly xl:mt-0 ">
 
 
                     {/* industry */}
-                    <div className="mt-4 sm:flex sm:max-w-md lg:mt-0">
+                    <div className="mt-4 lg:mt-0 sm:justify-center">
                         <Combobox as="div" value={selectedIndustry} onChange={setselectedIndustry}>
                             <Combobox.Label className="block text-sm font-medium text-gray-700">Industry</Combobox.Label>
                             <div className="relative mt-1">
@@ -106,7 +109,7 @@ export default function SelectSearch() {
                     </div>
 
                     {/* position */}
-                    <div className="mt-4 sm:flex sm:max-w-md lg:mt-0">
+                    <div className="mt-4 lg:mt-0 sm:justify-center">
                         <Combobox as="div" value={selectedPosition} onChange={setselectedPosition}>
                             <Combobox.Label className="block text-sm font-medium text-gray-700">Position</Combobox.Label>
                             <div className="relative mt-1">
@@ -158,7 +161,7 @@ export default function SelectSearch() {
                     </div>
 
                     {/* role */}
-                    <div className="mt-4 sm:flex sm:max-w-md lg:mt-0">
+                    <div className="mt-4 lg:mt-0 sm:justify-center">
                         <Combobox as="div" value={selectedRole} onChange={setselectedRole}>
                             <Combobox.Label className="block text-sm font-medium text-gray-700">Role</Combobox.Label>
                             <div className="relative mt-1">
@@ -208,9 +211,8 @@ export default function SelectSearch() {
                         </Combobox>
 
                     </div>
-
                     {/* clear & submit */}
-                    <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
+                    <div className="hidden max-sm:flex sm:flex sm:py-4 sm:justify-center lg:ml-4 lg:flex lg:items-center lg:space-x-6 sm:space-x-6 max-sm:space-x-6 max-sm:justify-center max-sm:my-4">
                         <button
                             type="button"
                             className="inline-flex items-center text-xs font-medium text-grey-400 text-gray-500 hover:text-gray-700"
@@ -224,6 +226,7 @@ export default function SelectSearch() {
                             Submit
                         </button>
                     </div>
+
 
                 </div>
 
