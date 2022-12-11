@@ -29,8 +29,8 @@ export default function RecentlyCareers() {
                     </p>
                 </div>
                 <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-                    {careers.map((career) => (
-                        <div key={career.position} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                    {careers.slice(careers.length - 3, careers.length).map((career) => (
+                        <div key={careers.position} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
                             <div className="flex-shrink-0">
                                 <img className="h-48 w-full object-cover" src={career.imageUrl} alt="" />
                             </div>
@@ -67,7 +67,7 @@ export default function RecentlyCareers() {
 
                                 <button
                                     type="button"
-                                    className="inline-flex items-center rounded-md border border-transparent bg-primary_600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none focus:ring-2 focus:ring-primary_500 focus:ring-offset-2 justify-center mt-6"
+                                    className="inline-flex items-center rounded-md border border-transparent bg-primary_600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary_700 justify-center mt-6"
                                 >
                                     More
                                 </button>
