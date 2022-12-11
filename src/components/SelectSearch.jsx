@@ -35,15 +35,15 @@ export default function SelectSearch() {
     const [ selectedPosition, setselectedPosition ] = useState(null)
     const [ selectedRole, setselectedRole ] = useState(null)
 
-    const filteredIndustry = query ===
+    const filteredIndustry =
         industry.filter((industry) => {
             return industry.name.toLowerCase().includes(query.toLowerCase())
         })
 
-    const filteredPosition = query === position.filter((position) => {
+    const filteredPosition = position.filter((position) => {
         return position.name.toLowerCase().includes(query.toLowerCase())
     })
-    const filteredRole = query ===
+    const filteredRole =
         role.filter((role) => {
             return role.name.toLowerCase().includes(query.toLowerCase())
         })
