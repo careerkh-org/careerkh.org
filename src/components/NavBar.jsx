@@ -164,6 +164,7 @@ export default function NavBar() {
                                     Forum
                                 </Disclosure.Button>
                             </NavLink>
+                            
                         </div>
                     </Disclosure.Panel>
                 </>
