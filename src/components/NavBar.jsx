@@ -1,28 +1,9 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-import { Fragment } from "react";
+
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { Switch } from "@headlessui/react";
-import { Outlet, Link } from "react-router-dom";
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-}
+import { Outlet, NavLink } from "react-router-dom";
 
 export default function NavBar() {
     const [ enabled, setEnabled ] = useState(false);
@@ -36,7 +17,7 @@ export default function NavBar() {
                             <div className="flex h-16 sm:justify-center lg:justify-evenly max-sm:justify-center">
                                 <div className="flex px-2 lg:px-0">
                                     <div className="flex flex-shrink-0 items-center">
-                                        <Link to="/">
+                                        <NavLink to="/" >
                                             <img
                                                 className="block h-20 w-auto lg:hidden"
                                                 src="https://firebasestorage.googleapis.com/v0/b/careerkh-web.appspot.com/o/images%2Fcareerkh_hr_text.png?alt=media&token=ed87436f-c381-43d8-a49e-785a41e712a2"
@@ -47,36 +28,44 @@ export default function NavBar() {
                                                 src="https://firebasestorage.googleapis.com/v0/b/careerkh-web.appspot.com/o/images%2Fcareerkh_hr_text.png?alt=media&token=ed87436f-c381-43d8-a49e-785a41e712a2"
                                                 alt="Company"
                                             />
-                                        </Link>
+                                        </NavLink>
                                     </div>
 
                                     <div className="hidden lg:ml-24 lg:flex items-center lg:space-x-10 justify-center">
-                                        <Link className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter"
-                                            to="/"
+                                        <NavLink
+                                            to="/" className={({ isActive }) =>
+                                                isActive ? 'inline-flex items-center border-b-2 border-primary  px-1 pt-1 text-sm font-medium text-black hover:border-gray-300 hover:text-primary_700 font-inter' : 'inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter'
+                                            }
                                         >
                                             Home
-                                        </Link>
+                                        </NavLink>
 
-                                        <Link className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter"
-                                            to="/careers"
+                                        <NavLink
+                                            to="/careers" className={({ isActive }) =>
+                                                isActive ? 'inline-flex items-center border-b-2 border-primary  px-1 pt-1 text-sm font-medium text-black hover:border-gray-300 hover:text-primary_700 font-inter' : 'inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter'
+                                            }
                                         >
                                             Careers
-                                        </Link>
+                                        </NavLink>
 
 
-                                        <Link className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter"
+                                        <NavLink
 
-                                            to="/roadmap"
+                                            to="/roadmap" className={({ isActive }) =>
+                                                isActive ? 'inline-flex items-center border-b-2 border-primary  px-1 pt-1 text-sm font-medium text-black hover:border-gray-300 hover:text-primary_700 font-inter' : 'inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter'
+                                            }
                                         >
                                             Roadmap
-                                        </Link>
+                                        </NavLink>
 
-                                        <Link
-                                            className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter"
-                                            to="/forum"
+                                        <NavLink
+
+                                            to="/forum" className={({ isActive }) =>
+                                                isActive ? 'inline-flex items-center border-b-2 border-primary  px-1 pt-1 text-sm font-medium text-black hover:border-gray-300 hover:text-primary_700 font-inter' : 'inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter'
+                                            }
                                         >
                                             Forum
-                                        </Link>
+                                        </NavLink>
                                         <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-start">
                                             <div className="w-100 max-w-lg lg:max-w-xs">
                                                 <label htmlFor="search" className="sr-only font-inter">
@@ -102,13 +91,13 @@ export default function NavBar() {
                                         <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center text-xs font-medium text-grey-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 font-inter"
+                                                className="inline-flex items-center text-xs font-medium text-gray-500 hover:text-gray-700"
                                             >
                                                 Sign in
                                             </button>
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center rounded border border-transparent bg-green-500 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 font-inter"
+                                                className="inline-flex items-center rounded border border-transparent bg-primary px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none"
                                             >
                                                 Sign up
                                             </button>
@@ -136,45 +125,45 @@ export default function NavBar() {
                     <Disclosure.Panel className="lg:hidden">
                         <div className="space-y-1 pt-2 pb-3">
                             {/* Current: "bg-green-50 border-green-500 text-green-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
-                            <Link to="/">
-                            <Disclosure.Button
-                                as="a"
-                                href="#"
-                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
-                            >
-                                Home
-                            </Disclosure.Button>
-                            </Link>
+                            <NavLink to="/">
+                                <Disclosure.Button
+                                    as="a"
+                                    href="#"
+                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
+                                >
+                                    Home
+                                </Disclosure.Button>
+                            </NavLink>
 
-                            <Link to="/careers">
-                            <Disclosure.Button
-                                as="a"
-                                href="#"
-                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
-                            
-                            >
-                                Careers
-                            </Disclosure.Button>
-                            </Link>
+                            <NavLink to="/careers">
+                                <Disclosure.Button
+                                    as="a"
+                                    href="#"
+                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
 
-                            <Link to="/roadmap">
-                            <Disclosure.Button
-                                as="a"
-                                href="#"
-                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
-                            >
-                                Roadmap
-                            </Disclosure.Button>
-                            </Link>
-                            <Link to="/forum">
-                            <Disclosure.Button
-                                as="a"
-                                href="#"
-                                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
-                            >
-                                Forum
-                            </Disclosure.Button>
-                            </Link>
+                                >
+                                    Careers
+                                </Disclosure.Button>
+                            </NavLink>
+
+                            <NavLink to="/roadmap">
+                                <Disclosure.Button
+                                    as="a"
+                                    href="#"
+                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
+                                >
+                                    Roadmap
+                                </Disclosure.Button>
+                            </NavLink>
+                            <NavLink to="/forum">
+                                <Disclosure.Button
+                                    as="a"
+                                    href="#"
+                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
+                                >
+                                    Forum
+                                </Disclosure.Button>
+                            </NavLink>
                         </div>
                     </Disclosure.Panel>
                 </>
