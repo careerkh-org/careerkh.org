@@ -19,6 +19,7 @@
     "react-countup": "^6.4.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.4.5",
+    "react-toastify": "^9.1.1",
     "react-visibility-sensor": "^5.1.1",
     "webpack": "^5.75.0"
   },

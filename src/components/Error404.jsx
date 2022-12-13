@@ -16,6 +16,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -35,12 +36,16 @@ export default function Error404() {
                                     <p className="mt-1 text-base text-gray-500">Please check the URL in the address bar and try again.</p>
                                 </div>
                                 <div className="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6">
+                                    <Link
+                                    to="/"
+                                    >
                                     <a
                                         href="#"
                                         className="inline-flex items-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                                     >
                                         Go back home
                                     </a>
+                                    </Link>
                                     <a
                                         href="#"
                                         className="inline-flex items-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-700 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
