@@ -4,7 +4,6 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
-
 export default function NavBar() {
     const [ enabled, setEnabled ] = useState(false);
 
@@ -88,13 +87,16 @@ export default function NavBar() {
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
+                                            <NavLink to="/auth">
                                             <button
                                                 type="button"
                                                 className="inline-flex items-center text-xs font-medium text-gray-500 hover:text-gray-700"
                                             >
                                                 Sign in
                                             </button>
+                                            </NavLink>
                                             <button
                                                 type="button"
                                                 className="inline-flex items-center rounded border border-transparent bg-primary px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none"
@@ -102,6 +104,8 @@ export default function NavBar() {
                                                 Sign up
                                             </button>
                                         </div>
+
+
                                     </div>
                                 </div>
 
