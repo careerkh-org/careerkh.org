@@ -1,12 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import NavBar from '../components/NavBar'
 import { Route, Router, Routes } from 'react-router-dom'
 import Home from './Home'
 import Careers from './Careers'
 import Roadmap from './Roadmap'
 import Forum from './Forum'
-import Auth from './Auth'
+import Login from './Login'
+import Error404 from '../components/Error404'
+
 
 const main = () => {
   return (
@@ -16,7 +16,8 @@ const main = () => {
       <Route path='/careers' element={<Careers/>}></Route>
       <Route path='/roadmap' element={<Roadmap/>}></Route>
       <Route path='/forum' element={<Forum/>}></Route>
-      <Route path='/auth' element={<Auth/>}></Route>
+      <Route path='/login' element={<Login/>}></Route>
+      <Route path='/error404' element={<Error404/>}></Route>
     </Routes>
     
   </React.StrictMode>

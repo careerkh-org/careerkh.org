@@ -2,7 +2,7 @@ import React, {useCallback, useContext} from 'react';
 
 import loginImg from '../assets/login.jpg';
 
-const Login = ()=> {
+const Signin = ()=> {
 
 
   return (
@@ -33,4 +33,4 @@ const Login = ()=> {
     </div>
   )
 };
-export default (Login);
+export default (Signin);

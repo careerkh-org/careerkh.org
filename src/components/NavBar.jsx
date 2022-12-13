@@ -89,7 +89,7 @@ export default function NavBar() {
                                         </div>
                                         
                                         <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
-                                            <NavLink to="/auth">
+                                            <NavLink to="/login">
                                             <button
                                                 type="button"
                                                 className="inline-flex items-center text-xs font-medium text-gray-500 hover:text-gray-700"
@@ -155,6 +155,7 @@ export default function NavBar() {
                                     as="a"
                                     href="#"
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
+                                
                                 >
                                     Roadmap
                                 </Disclosure.Button>
@@ -168,6 +169,25 @@ export default function NavBar() {
                                     Forum
                                 </Disclosure.Button>
                             </NavLink>
+
+                    
+                            <NavLink to="/login">
+                                <Disclosure.Button
+                                    type="button"
+                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
+                                
+                                >
+                                    Sign in
+                                </Disclosure.Button>
+                            </NavLink>
+
+                            <Disclosure.Button
+                                type="button"
+                                className="block border-l-4 rounded-md bg-primary border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-100 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
+                                >
+                                    Sign up
+                            </Disclosure.Button>
+                                        
 
                         </div>
                     </Disclosure.Panel>
