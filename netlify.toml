@@ -2,3 +2,7 @@
   from = "/*"
   to = "/Error404"
   status = 404
+  
+  from = "/login"
+  to = "login"
+  status = 200

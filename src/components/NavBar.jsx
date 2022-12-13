@@ -89,7 +89,7 @@ export default function NavBar() {
                                         </div>
                                         
                                         <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
-                                            <NavLink to="/login">
+                                            <NavLink to="/signin">
                                             <button
                                                 type="button"
                                                 className="inline-flex items-center text-xs font-medium text-gray-500 hover:text-gray-700"
