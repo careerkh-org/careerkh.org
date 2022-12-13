@@ -6,7 +6,7 @@ import Home from './Home'
 import Careers from './Careers'
 import Roadmap from './Roadmap'
 import Forum from './Forum'
-import Auth from './auth'
+import Auth from './Auth'
 
 const main = () => {
   return (
