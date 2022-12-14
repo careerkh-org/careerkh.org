@@ -4,10 +4,9 @@ import Home from './Home'
 import Careers from './Careers'
 import Roadmap from './Roadmap'
 import Forum from './Forum'
-import Login from './Login'
 import Signin from '../components/Signin'
 import Error404 from '../components/Error404'
-
+import Signup from '../components/signup.jsx'
 
 const main = () => {
   return (
@@ -17,7 +16,8 @@ const main = () => {
       <Route path='/careers' element={<Careers/>}></Route>
       <Route path='/roadmap' element={<Roadmap/>}></Route>
       <Route path='/forum' element={<Forum/>}></Route>
-      <Route path='/Signin' element={<Signin/>}></Route>
+      <Route path='/signin' element={<Signin/>}></Route>
+      <Route path='/signup' element={<Signup/>}></Route>
       <Route path='/error404' element={<Error404/>}></Route>
     </Routes>
     

@@ -97,12 +97,14 @@ export default function NavBar() {
                                                 Sign in
                                             </button>
                                             </NavLink>
+                                            <NavLink to="/signup">
                                             <button
                                                 type="button"
                                                 className="inline-flex items-center rounded border border-transparent bg-primary px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none"
                                             >
                                                 Sign up
                                             </button>
+                                            </NavLink>
                                         </div>
 
 
@@ -180,14 +182,14 @@ export default function NavBar() {
                                     Sign in
                                 </Disclosure.Button>
                             </NavLink>
-
+                            <NavLink to="/signup">
                             <Disclosure.Button
                                 type="button"
                                 className="block border-l-4 rounded-md bg-primary border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-100 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
                                 >
                                     Sign up
                             </Disclosure.Button>
-                                        
+                            </NavLink>        
 
                         </div>
                     </Disclosure.Panel>
