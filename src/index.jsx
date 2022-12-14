@@ -9,8 +9,6 @@ export default function App() {
     <BrowserRouter>
       <Main />
     </BrowserRouter>
-
-
   );
 }
 
