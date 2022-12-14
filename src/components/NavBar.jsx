@@ -4,7 +4,6 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
-
 export default function NavBar() {
     const [ enabled, setEnabled ] = useState(false);
 
@@ -88,20 +87,27 @@ export default function NavBar() {
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
+                                            <NavLink to="/signin">
                                             <button
                                                 type="button"
                                                 className="inline-flex items-center text-xs font-medium text-gray-500 hover:text-gray-700"
                                             >
                                                 Sign in
                                             </button>
+                                            </NavLink>
+                                            <NavLink to="/signup">
                                             <button
                                                 type="button"
                                                 className="inline-flex items-center rounded border border-transparent bg-primary px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none"
                                             >
                                                 Sign up
                                             </button>
+                                            </NavLink>
                                         </div>
+
+
                                     </div>
                                 </div>
 
@@ -151,6 +157,7 @@ export default function NavBar() {
                                     as="a"
                                     href="#"
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
+                                
                                 >
                                     Roadmap
                                 </Disclosure.Button>
@@ -164,6 +171,25 @@ export default function NavBar() {
                                     Forum
                                 </Disclosure.Button>
                             </NavLink>
+
+                    
+                            <NavLink to="/signin">
+                                <Disclosure.Button
+                                    type="button"
+                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
+                                
+                                >
+                                    Sign in
+                                </Disclosure.Button>
+                            </NavLink>
+                            <NavLink to="/signup">
+                            <Disclosure.Button
+                                type="button"
+                                className="block border-l-4 rounded-md bg-primary border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-100 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
+                                >
+                                    Sign up
+                            </Disclosure.Button>
+                            </NavLink>        
 
                         </div>
                     </Disclosure.Panel>

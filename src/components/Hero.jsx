@@ -22,9 +22,9 @@ export default class Hero extends Component {
             <div className="relative overflow-hidden" >
 
                 <main>
-                    <div className=" pt-2 sm:pt-2 lg:overflow-hidden lg:pt-0 lg:pb-1">
+                    <div className=" pt-2 sm:pt-2 lg:overflow-auto lg:pt-0 lg:pb-1 md:pt-1 ">
                         <div className="mx-auto mt-3 mb-20 max-w-7xl lg:px-8">
-                            <div className="lg:grid lg:grid-cols-2 lg:gap-8">
+                            <div className="lg:grid lg:grid-cols-2 lg:gap-8 ">
                                 <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:flex lg:items-center lg:px-0 lg:text-left">
                                     <div className="lg:py-8">
                                         <a
@@ -102,8 +102,8 @@ export default class Hero extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="mt-12 -mb-16 sm:-mb-48 lg:relative lg:m-0">
-                                    <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
+                                <div className="mt-12 -mb-16 lg:relative lg:m-0">
+                                    <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0 ">
                                         {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
                                         <img
                                             className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-100 lg:max-w-none"
