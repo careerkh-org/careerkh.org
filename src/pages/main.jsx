@@ -13,15 +13,14 @@ import Signup from '../components/signup.jsx'
 const main = () => {
   return (
     <React.StrictMode>
-    <NavBar />
-    <Routes>
-      <Route path='/' element={<Home/>}></Route>
-      <Route path='/careers' element={<Careers/>}></Route>
-      <Route path='/roadmap' element={<Roadmap/>}></Route>
-      <Route path='/forum' element={<Forum/>}></Route>
-    </Routes>
-    
-  </React.StrictMode>
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/careers' element={<Careers />}></Route>
+        <Route path='/roadmap' element={<Roadmap />}></Route>
+        <Route path='/forum' element={<Forum />}></Route>
+      </Routes>
+
+    </React.StrictMode>
   );
 };
 
