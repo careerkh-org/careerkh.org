@@ -35,7 +35,7 @@ export default function RecentlyCareers() {
                 </div>
                 <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
                     {data && data.length
-                        ? data.map((career) => (
+                        ? data.slice(data.length - 3, data.length).map((career) => (
                             <div key={career.attributes.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
                                 <div className="flex-shrink-0">
                                     <img className="h-48 w-full object-cover" src={career.attributes.imageUrl} alt="" />
