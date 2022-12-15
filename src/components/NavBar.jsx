@@ -98,7 +98,7 @@ export default function NavBar() {
                                                 type="button"
                                                 className="inline-flex items-center rounded border border-transparent bg-primary px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none"
                                             >
-                                                My Account
+                                                Account
                                             </button>
                                             </NavLink>
                                         </div>
@@ -174,7 +174,7 @@ export default function NavBar() {
                                 type="button"
                                 className="block border-l-4 rounded-md bg-primary border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-100 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
                                 >
-                                    My Account
+                                    Account
                             </Disclosure.Button>
                             </NavLink>        
 
