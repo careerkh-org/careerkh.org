@@ -1,4 +1,6 @@
 import React from 'react'
+import ReactDOM from 'react-dom/client'
+import NavBar from '../components/NavBar'
 import { Route, Router, Routes } from 'react-router-dom'
 import Home from './Home'
 import Careers from './Careers'
@@ -15,6 +17,7 @@ import ProtectedRoute from '../components/ProtectedRoute'
 const main = () => {
   return (
     <React.StrictMode>
+
       <AuthContextProvider>
 
       <Routes>
@@ -34,5 +37,5 @@ const main = () => {
   </React.StrictMode>
   );
 };
-  
+
 export default main;
