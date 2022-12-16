@@ -2,6 +2,8 @@ import React from 'react'
 import SelectSearch from "../components/SelectSearch.jsx";
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar.jsx';
+import RecentlyRoadmap from '../components/RecentlyRoadmap';
+
 const Roadmap = () => {
   return (
     <>
@@ -13,6 +15,7 @@ const Roadmap = () => {
 
     </div>
     <SelectSearch/>
+    <RecentlyRoadmap/>
     <Footer/>
     </>
   )
