@@ -13,7 +13,6 @@ import Dashboard from '../components/Dashboard'
 import { AuthContextProvider } from '../context/AuthContext'
 import Myaccount from './Myaccount'
 import ProtectedRoute from '../components/ProtectedRoute'
-
 const main = () => {
   return (
     <React.StrictMode>
@@ -27,9 +26,8 @@ const main = () => {
       <Route path='/forum' element={<Forum/>}></Route>
       <Route path='/Login' element={<Login/>}></Route>
       <Route path='/signup' element={<Signup/>}></Route>
-      
       <Route path='/myaccount' element={<ProtectedRoute><Myaccount/></ProtectedRoute> }></Route>
-      <Route path='/error404' element={<Error404/>}></Route>
+      <Route path='*' element={<Error404/>}></Route>
     </Routes>
     
       </AuthContextProvider>
