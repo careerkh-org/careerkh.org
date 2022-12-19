@@ -3,6 +3,7 @@ import SelectSearch from "../components/SelectSearch.jsx";
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar.jsx';
 import Career from '../components/Career.jsx';
+import Detail from '../components/Datail.jsx';
 
 const Careers = () => {
     return (
@@ -16,7 +17,8 @@ const Careers = () => {
 
             </div>
             <SelectSearch />
-            <Career></Career>
+            {/* <Career></Career> */}
+            <Detail></Detail>
             <Footer />
         </>
 
