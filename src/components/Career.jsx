@@ -21,7 +21,10 @@ export default function Career() {
             })
     }, [])
     return (
-        <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-14">
+        <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-0 lg:pb-14">
+                            <div className="text-center">
+                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Careers</h2>
+                </div>
                 <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-7xl lg:grid-cols-2">
                     {data && data.length
                         ? data.slice(data.length - 5, data.length).map((career) => (
