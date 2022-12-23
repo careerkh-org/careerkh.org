@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const token = '715818f7d4b5d83a8387b8d708886d510063faa654c9c987fdff78976b615af1b16560db72ea01ff45f5146f0a6e97b0c836bf56e70fd343890444528ffdddce381ed07b198a620c4a2650c9eaf691bc7542d3d75f52488b6f55047f661ba716e7c260e45309a49d9e3dd3bcf6c27b67e55a9dc4f30015b0ff876e1690088bf2'
+const token = 'cabd2c6851cc480ea399ac81fe263bab1ee4bc6fc057f431eb4f8b87a130a26fb53c3d46a41f005aa949b6ff2911bc4290a806f1364a74333b7fd536653c1d6e1883de2ea3782f23f0332540979d38b66cd35bf4f99c27e8dbb821f33649644362c7fc9557efdefbbdf1c00595ee653fc4797e3998a5360865d99bbf01c0565b'
 const config = {
     headers: { Authorization: `Bearer ${token}` }
 };
@@ -22,7 +22,7 @@ export default function Career() {
     }, [])
     return (
         <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-14">
-                <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none ">
+                <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-7xl lg:grid-cols-2">
                     {data && data.length
                         ? data.slice(data.length - 5, data.length).map((career) => (
                             <div key={career.attributes.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
