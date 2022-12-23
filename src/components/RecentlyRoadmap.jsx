@@ -21,7 +21,7 @@ export default function RecentlyRoadmap() {
             })
     }, [])
     return (
-        <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-14">
+        <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-10 lg:pb-14">
             <div className="absolute inset-0">
                 <div className="h-1/3 bg-white sm:h-2/3" />
             </div>
