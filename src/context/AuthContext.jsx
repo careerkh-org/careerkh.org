@@ -4,6 +4,9 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  browserSessionPersistence,
+  getAuth, 
+  setPersistence,
 } from 'firebase/auth';
 import { auth } from '../firebase';
 
@@ -32,7 +35,9 @@ export const AuthContextProvider = ({ children }) => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, 
+  []);
+
 
   return (
     <UserContext.Provider value={{ createUser, user, logout, signIn }}>
