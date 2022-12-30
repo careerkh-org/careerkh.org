@@ -4,6 +4,7 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { Combobox } from '@headlessui/react'
 
 const industry = [
+    { id: 0, name: 'All Industry' },
     { id: 1, name: 'ITE' },
     { id: 2, name: 'IT' },
     { id: 3, name: 'Math' },
@@ -11,6 +12,7 @@ const industry = [
 ]
 
 const position = [
+    { id: 0, name: 'All Position' },
     { id: 1, name: 'WEB' },
     { id: 2, name: 'APP' },
     { id: 3, name: 'Database' },
@@ -18,6 +20,7 @@ const position = [
 ]
 
 const role = [
+    { id: 0, name: 'All Role' },
     { id: 1, name: 'Front' },
     { id: 2, name: 'Back' },
     { id: 3, name: 'Hybrid' },
@@ -31,20 +34,27 @@ function classNames(...classes) {
 export default function SelectSearch() {
 
     const [ query, setQuery ] = useState('')
-    const [ selectedIndustry, setselectedIndustry ] = useState(null)
-    const [ selectedPosition, setselectedPosition ] = useState(null)
-    const [ selectedRole, setselectedRole ] = useState(null)
+    const [ selectedIndustry, setselectedIndustry ] = useState(industry[0])
+    const [ selectedPosition, setselectedPosition ] = useState(position[0])
+    const [ selectedRole, setselectedRole ] = useState(role[0])
 
     const filteredIndustry =
-        industry.filter((industry) => {
+    query === ''
+        ? industry 
+        : industry.filter((industry) => {
             return industry.name.toLowerCase().includes(query.toLowerCase())
         })
 
-    const filteredPosition = position.filter((position) => {
+    const filteredPosition = 
+    query === ''
+        ? position
+        : position.filter((position) => {
         return position.name.toLowerCase().includes(query.toLowerCase())
     })
     const filteredRole =
-        role.filter((role) => {
+    query === ''
+        ? role
+        :role.filter((role) => {
             return role.name.toLowerCase().includes(query.toLowerCase())
         })
 
@@ -65,6 +75,7 @@ export default function SelectSearch() {
                                     className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-primary_500 focus:outline-none focus:ring-1 focus:ring-primary_500 sm:text-sm"
                                     onChange={(event) => setQuery(event.target.value)}
                                     displayValue={(major) => major?.name}
+                                    
                                 />
                                 <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
                                     <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -212,7 +223,7 @@ export default function SelectSearch() {
 
                     </div>
                     {/* clear & submit */}
-                    <div className="hidden max-sm:flex sm:flex sm:py-4 sm:justify-center lg:ml-4 lg:flex lg:items-center lg:space-x-6 sm:space-x-6 max-sm:space-x-6 max-sm:justify-center max-sm:my-4">
+                    <div className="hidden max-sm:flex sm:flex sm:pt-4 sm:justify-center lg:ml-4 lg:pb-0 lg:flex lg:items-center lg:space-x-6 sm:space-x-6 max-sm:space-x-6 max-sm:justify-center max-sm:my-4">
                         <button
                             type="button"
                             className="inline-flex items-center text-xs font-medium text-grey-400 text-gray-500 hover:text-gray-700"
@@ -221,7 +232,7 @@ export default function SelectSearch() {
                         </button>
                         <button
                             type="button"
-                            className="inline-flex items-center rounded border border-transparent bg-primary px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 font-inter"
+                            className="inline-flex items-center rounded border border-transparent bg-green-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 font-inter"
                         >
                             Submit
                         </button>

@@ -18,7 +18,7 @@ const Careers = () => {
             </div>
             <SelectSearch />
             <RecentlyCareers/>
-            <Career></Career>
+            <Career/>
             <Footer />
         </>
 
