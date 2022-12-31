@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const token = 'cabd2c6851cc480ea399ac81fe263bab1ee4bc6fc057f431eb4f8b87a130a26fb53c3d46a41f005aa949b6ff2911bc4290a806f1364a74333b7fd536653c1d6e1883de2ea3782f23f0332540979d38b66cd35bf4f99c27e8dbb821f33649644362c7fc9557efdefbbdf1c00595ee653fc4797e3998a5360865d99bbf01c0565b'
+const token = '3112f54c3d928547abb0e005c1325f381fb33dc2a53953849f5bf7984633ab77052d2331dbbdb312c388b3cfda8baea1437676586769d2c9e06a95d73865ae62f76b6057e2274968f244f4e3937ad9a30d4c1bc6aec88cfd9250838c7925dca675abeb3fb51adfe63a8c1aab7f0c7057efc987b9dee70840639d144835d78e6b'
 const config = {
     headers: { Authorization: `Bearer ${token}` }
 };
@@ -11,7 +11,7 @@ export default function RecentlyRoadmap() {
     const { data } = careers;
 
     useEffect(() => {
-        axios.get('https://strapi-production-cf63.up.railway.app/api/careers', config)
+        axios.get('https://careerkh-api.up.railway.app/api/careers', config)
             .then(res => {
                 console.log(res)
                 setCareers(res.data)
