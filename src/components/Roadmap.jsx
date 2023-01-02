@@ -84,7 +84,8 @@ export default function Roadmap() {
                                     </div>
                                 </div>
                             </div>
-                        )) : spinner
+                        )) :  <div class=" h-full w-20 "><img src={spinner} alt="" /></div>
+                        
                     }
                 </div>
         </div>
