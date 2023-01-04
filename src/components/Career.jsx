@@ -83,7 +83,13 @@ export default function Career() {
                                     </div>
                                 </div>
                             </div>
-                        )) : <div class=" h-full w-20 "><img src={spinner} alt="" /></div>
+                        )) : 
+                        <section class="hero container max-w-screen-lg mx-auto pb-10 text-center mt-10 col-span-3">
+                        <img className='mx-auto w-20' src={spinner} alt="loading" />
+                        <h1 className="text-1xl font-light text-green-600">
+                            Please Wait!
+                        </h1>
+                        </section>
                     }
                 </div>
         </div>
