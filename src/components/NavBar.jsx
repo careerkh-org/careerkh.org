@@ -5,6 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { Outlet, NavLink,useNavigate } from "react-router-dom";
 import { UserAuth } from '../context/AuthContext';
+import logo from '../assets/careerkh_hr_text.png'
 export default function NavBar() {
     const [ enabled, setEnabled ] = useState(false);
     const { user } = UserAuth();
@@ -22,12 +23,12 @@ export default function NavBar() {
                                         <NavLink to="/" >
                                             <img
                                                 className="block h-20 w-auto lg:hidden"
-                                                src="https://firebasestorage.googleapis.com/v0/b/careerkh-web.appspot.com/o/images%2Fcareerkh_hr_text.png?alt=media&token=ed87436f-c381-43d8-a49e-785a41e712a2"
+                                                src= {logo}
                                                 alt="Company"
                                             />
                                             <img
                                                 className="hidden h-20 w-auto lg:block"
-                                                src="https://firebasestorage.googleapis.com/v0/b/careerkh-web.appspot.com/o/images%2Fcareerkh_hr_text.png?alt=media&token=ed87436f-c381-43d8-a49e-785a41e712a2"
+                                                src={logo}
                                                 alt="Company"
                                             />
                                         </NavLink>
