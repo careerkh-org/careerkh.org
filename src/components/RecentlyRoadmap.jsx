@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import spinner from  '../assets/Spinner.svg'
-const token = '3112f54c3d928547abb0e005c1325f381fb33dc2a53953849f5bf7984633ab77052d2331dbbdb312c388b3cfda8baea1437676586769d2c9e06a95d73865ae62f76b6057e2274968f244f4e3937ad9a30d4c1bc6aec88cfd9250838c7925dca675abeb3fb51adfe63a8c1aab7f0c7057efc987b9dee70840639d144835d78e6b'
+import spinner from '../assets/Spinner.svg'
+const token = '7184cdcc318b099cf5c37e08014d29cfa662264dbb7ded22db66652abb778b3368b9f17526fd0e9608ef44fcc3a52ef1f4308b1caf69780975c766d2f78b07b4e86f8be063ca4327fff16c347e40e402c43d624cf1d9481a702c48d700fdb507077f45b91be32508226e13c63374ee49e877caf67c743ef2fcc41309adaf9194'
 const config = {
     headers: { Authorization: `Bearer ${token}` }
 };
@@ -78,12 +78,12 @@ export default function RecentlyRoadmap() {
                                     </button>
                                 </div>
                             </div>
-                        )) : 
+                        )) :
                         <section class="hero container max-w-screen-lg mx-auto pb-10 text-center mt-10 col-span-3">
-                        <img className='mx-auto w-20' src={spinner} alt="loading" />
-                        <h1 className="text-1xl font-light text-green-600">
-                            Please Wait!
-                        </h1>
+                            <img className='mx-auto w-20' src={spinner} alt="loading" />
+                            <h1 className="text-1xl font-light text-green-600">
+                                Please Wait!
+                            </h1>
                         </section>
                     }
                 </div>
