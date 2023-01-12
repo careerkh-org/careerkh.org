@@ -2,30 +2,28 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import spinner from '../assets/Spinner.svg'
 
-const token = 'f857d0e1f312b1f8043fd167da2ccc92ad5165bb26c27c35e3428b54441fea5b735c3d0287bd662be84213e9b2c03d54fc54b0ecac0264ccab4a1b8e4d610812c19d030cf61c879fa496b50ac1e26e028abd63dfd2c47df6147d0387f498eee9502082e1a4f1a8ecaffe13be3a6c54b7b667d5c8a075397da508e9f31babd7c4'
+const token = '7184cdcc318b099cf5c37e08014d29cfa662264dbb7ded22db66652abb778b3368b9f17526fd0e9608ef44fcc3a52ef1f4308b1caf69780975c766d2f78b07b4e86f8be063ca4327fff16c347e40e402c43d624cf1d9481a702c48d700fdb507077f45b91be32508226e13c63374ee49e877caf67c743ef2fcc41309adaf9194'
 const config = {
     headers: { Authorization: `Bearer ${token}` }
 };
 
 export default function RecentlyCareers() {
     const [ careers, setCareers ] = useState([]);
-    const [ locations, setLocations ] = useState([]);
 
-    const { data } = careers;
 
     useEffect(() => {
-        axios.get('https://careerkh-api.up.railway.app/api/careers', config)
+        axios.get('https://careerkh-api.up.railway.app/api/careers?populate=locations&populate=industries', config)
             .then(res => {
-                console.log('test res.data rec')
-
-                console.log(res.data)
-                setCareers(res.data)
-                setLocations(res.data)
+                console.log('RecetlyCareers')
+                console.log(res.data.data)
+                setCareers(res.data.data)
             })
             .catch(err => {
                 console.log(err)
             })
     }, [])
+
+
     return (
         <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-10 lg:pb-14">
             <div className="absolute inset-0">
@@ -40,9 +38,10 @@ export default function RecentlyCareers() {
                     </p>
                 </div>
                 <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-                    {data && data.length
-                        ? data.slice(data.length - 3, data.length).map((career) => (
+                    {careers && careers.length
+                        ? careers.slice(careers.length - 3, careers.length).map((career) => (
                             <div key={career.attributes.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
+
                                 <div className="flex-shrink-0">
                                     <img className="h-48 w-full object-cover" src={career.attributes.imageUrl} alt="" />
                                 </div>
@@ -50,7 +49,12 @@ export default function RecentlyCareers() {
                                     <div className="flex-1">
                                         <p className="text-sm font-medium text-primary_600">
                                             <a href={career.attributes.href} className="hover:underline">
-                                                {career.attributes.industry}
+
+                                                {career.attributes.industries.data.map((industry) => (
+                                                    <h1>{industry.attributes.name}</h1>
+                                                ))}
+
+
                                             </a>
                                         </p>
                                         <a href={career.attributes.href} className="mt-2 block">
@@ -64,7 +68,9 @@ export default function RecentlyCareers() {
                                             </div>
 
                                             <div className="flex align-middle items-center text-center py-2">
-                                                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>                                            <p className="mx-3 text-base text-gray-500">{career.attributes.location}</p>
+                                                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>                                            <p className="mx-3 text-base text-gray-500"> {career.attributes.locations.data.map((location) => (
+                                                    <h1>{location.attributes.city}</h1>
+                                                ))}</p>
                                             </div>
 
 

@@ -6,7 +6,7 @@ import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { object } from 'prop-types';
 
-const token = 'f857d0e1f312b1f8043fd167da2ccc92ad5165bb26c27c35e3428b54441fea5b735c3d0287bd662be84213e9b2c03d54fc54b0ecac0264ccab4a1b8e4d610812c19d030cf61c879fa496b50ac1e26e028abd63dfd2c47df6147d0387f498eee9502082e1a4f1a8ecaffe13be3a6c54b7b667d5c8a075397da508e9f31babd7c4'
+const token = '7184cdcc318b099cf5c37e08014d29cfa662264dbb7ded22db66652abb778b3368b9f17526fd0e9608ef44fcc3a52ef1f4308b1caf69780975c766d2f78b07b4e86f8be063ca4327fff16c347e40e402c43d624cf1d9481a702c48d700fdb507077f45b91be32508226e13c63374ee49e877caf67c743ef2fcc41309adaf9194'
 const config = {
     headers: { Authorization: `Bearer ${token}` }
 };
@@ -16,15 +16,14 @@ export default class Hero extends React.Component {
         super(props);
         this.state = {
             careers: [],
-
             startCounter: false
         };
     }
 
     componentDidMount() {
-        axios.get('https://careerkh-api.up.railway.app/api/careers', config)
+        axios.get('https://careerkh-api.up.railway.app/api/careers?populate=locations&populate=industries', config)
             .then(res => {
-                console.log('test res.data hero')
+                console.log('Hero')
                 console.log(res.data.data)
                 this.setState({ careers: res.data.data })
 
@@ -49,7 +48,12 @@ export default class Hero extends React.Component {
         return (
 
             <div className="relative overflow-hidden" >
+
                 <main>
+
+
+
+
                     <div className=" pt-2 sm:pt-2 lg:overflow-auto lg:pt-0 lg:pb-1 md:pt-1 ">
                         <div className="mx-auto mt-3 mb-20 max-w-7xl lg:px-8">
                             <div className="lg:grid lg:grid-cols-2 lg:gap-8 ">
@@ -91,7 +95,7 @@ export default class Hero extends React.Component {
                                                     <div className="">
                                                         <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                                                             <span className="block text-primary sm:flex justify-center font-righteous">
-                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? 1 : 0} /></VisibilitySensor>
+                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? careers && 1 : 0} /></VisibilitySensor>
                                                             </span>
                                                         </h1>
                                                         <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl font-inter">
@@ -120,11 +124,6 @@ export default class Hero extends React.Component {
                                                         </p>
                                                     </div>
                                                 </div>
-
-
-
-
-
                                             </div>
                                         </div>
                                     </div>
