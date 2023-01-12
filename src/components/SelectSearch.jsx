@@ -1,30 +1,16 @@
 
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { Combobox } from '@headlessui/react'
+import axios from 'axios';
+
+const token = 'f857d0e1f312b1f8043fd167da2ccc92ad5165bb26c27c35e3428b54441fea5b735c3d0287bd662be84213e9b2c03d54fc54b0ecac0264ccab4a1b8e4d610812c19d030cf61c879fa496b50ac1e26e028abd63dfd2c47df6147d0387f498eee9502082e1a4f1a8ecaffe13be3a6c54b7b667d5c8a075397da508e9f31babd7c4'
+const config = {
+    headers: { Authorization: `Bearer ${token}` }
+};
 
 const industry = [
-    { id: 0, name: 'All Industry' },
-    { id: 1, name: 'ITE' },
-    { id: 2, name: 'IT' },
-    { id: 3, name: 'Math' },
-
-]
-
-const position = [
-    { id: 0, name: 'All Position' },
-    { id: 1, name: 'WEB' },
-    { id: 2, name: 'APP' },
-    { id: 3, name: 'Database' },
-
-]
-
-const role = [
-    { id: 0, name: 'All Role' },
-    { id: 1, name: 'Front' },
-    { id: 2, name: 'Back' },
-    { id: 3, name: 'Hybrid' },
-
+    { id: 0, name: 'Information Technology' },
 ]
 
 function classNames(...classes) {
@@ -32,35 +18,58 @@ function classNames(...classes) {
 }
 
 export default function SelectSearch() {
+    const [ careers, setCareers ] = useState([])
+    const { data } = careers
 
     const [ query, setQuery ] = useState('')
-    const [ selectedIndustry, setselectedIndustry ] = useState(industry[0])
-    const [ selectedPosition, setselectedPosition ] = useState(position[0])
-    const [ selectedRole, setselectedRole ] = useState(role[0])
+    const [ selectedIndustry, setselectedIndustry ] = useState(industry[ 0 ])
+    const [ selectedPosition, setselectedPosition ] = useState(data)
+    const [ selectedCareer, setselectedCareer ] = useState(data)
+
+    useEffect(() => {
+        axios.get('https://careerkh-api.up.railway.app/api/careers', config)
+            .then(res => {
+                console.log('ss')
+                console.log(res.data.data)
+
+                setCareers(res.data.data)
+
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
 
     const filteredIndustry =
-    query === ''
-        ? industry 
-        : industry.filter((industry) => {
-            return industry.name.toLowerCase().includes(query.toLowerCase())
-        })
+        query === ''
+            ? industry
+            : industry.filter((industry) => {
+                return industry.name.toLowerCase().includes(query.toLowerCase())
+            })
 
-    const filteredPosition = 
-    query === ''
-        ? position
-        : position.filter((position) => {
-        return position.name.toLowerCase().includes(query.toLowerCase())
-    })
-    const filteredRole =
-    query === ''
-        ? role
-        :role.filter((role) => {
-            return role.name.toLowerCase().includes(query.toLowerCase())
-        })
-
+    const filteredPosition =
+        query === ''
+            ? careers
+            : careers.attributes.position.filter((position) => {
+                return position.toLowerCase().includes(query.toLowerCase())
+            })
+    const filteredCareer =
+        query === ''
+            ? careers
+            : careers.attributes.caption.filter((caption) => {
+                return caption.toLowerCase().includes(query.toLowerCase())
+            })
     return (
         <div className="bg-primary_300" aria-labelledby="footer-heading">
-
+            {/* <ul>
+                {
+                    careers
+                        .map(career =>
+                            <li key={career.id}>{career.attributes.position}</li>
+                        )
+                }
+            </ul> */}
             <div className="mx-auto max-w-7xl py-7 px-4 sm:px-6 lg:py-10 lg:px-8 ">
 
                 <div className=" pt-4 lg:flex lg:items-center lg:justify-evenly xl:mt-0 ">
@@ -74,8 +83,8 @@ export default function SelectSearch() {
                                 <Combobox.Input
                                     className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-primary_500 focus:outline-none focus:ring-1 focus:ring-primary_500 sm:text-sm"
                                     onChange={(event) => setQuery(event.target.value)}
-                                    displayValue={(major) => major?.name}
-                                    
+                                    displayValue={(career) => career?.name}
+
                                 />
                                 <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
                                     <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -83,59 +92,7 @@ export default function SelectSearch() {
 
                                 {filteredIndustry.length > 0 && (
                                     <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                        {filteredIndustry.map((major) => (
-                                            <Combobox.Option
-                                                key={major.id}
-                                                value={major}
-                                                className={({ active }) =>
-                                                    classNames(
-                                                        'relative cursor-default select-none py-2 pl-3 pr-9',
-                                                        active ? 'bg-primary_600 text-white' : 'text-gray-900'
-                                                    )
-                                                }
-                                            >
-                                                {({ active, selected }) => (
-                                                    <>
-                                                        <span className={classNames('block truncate', selected && 'font-semibold')}>{major.name}</span>
-
-                                                        {selected && (
-                                                            <span
-                                                                className={classNames(
-                                                                    'absolute inset-y-0 right-0 flex items-center pr-4',
-                                                                    active ? 'text-white' : 'text-primary_600'
-                                                                )}
-                                                            >
-                                                                <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                                                            </span>
-                                                        )}
-                                                    </>
-                                                )}
-                                            </Combobox.Option>
-                                        ))}
-                                    </Combobox.Options>
-                                )}
-                            </div>
-                        </Combobox>
-
-                    </div>
-
-                    {/* position */}
-                    <div className="mt-4 lg:mt-0 sm:justify-center">
-                        <Combobox as="div" value={selectedPosition} onChange={setselectedPosition}>
-                            <Combobox.Label className="block text-sm font-medium text-gray-700">Position</Combobox.Label>
-                            <div className="relative mt-1">
-                                <Combobox.Input
-                                    className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-primary_500 focus:outline-none focus:ring-1 focus:ring-primary_500 sm:text-sm"
-                                    onChange={(event) => setQuery(event.target.value)}
-                                    displayValue={(career) => career?.name}
-                                />
-                                <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
-                                    <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                                </Combobox.Button>
-
-                                {filteredPosition.length > 0 && (
-                                    <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                        {filteredPosition.map((career) => (
+                                        {filteredIndustry.map((career) => (
                                             <Combobox.Option
                                                 key={career.id}
                                                 value={career}
@@ -171,26 +128,26 @@ export default function SelectSearch() {
 
                     </div>
 
-                    {/* role */}
+                    {/* position */}
                     <div className="mt-4 lg:mt-0 sm:justify-center">
-                        <Combobox as="div" value={selectedRole} onChange={setselectedRole}>
-                            <Combobox.Label className="block text-sm font-medium text-gray-700">Role</Combobox.Label>
+                        <Combobox as="div" value={selectedPosition} onChange={setselectedPosition}>
+                            <Combobox.Label className="block text-sm font-medium text-gray-700">Position</Combobox.Label>
                             <div className="relative mt-1">
                                 <Combobox.Input
                                     className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-primary_500 focus:outline-none focus:ring-1 focus:ring-primary_500 sm:text-sm"
                                     onChange={(event) => setQuery(event.target.value)}
-                                    displayValue={(position) => position?.name}
+                                    displayValue={(career) => career?.id}
                                 />
                                 <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
                                     <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                                 </Combobox.Button>
 
-                                {filteredRole.length > 0 && (
+                                {filteredPosition.length > 0 && (
                                     <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                        {filteredRole.map((position) => (
+                                        {filteredPosition.map((career) => (
                                             <Combobox.Option
-                                                key={position.id}
-                                                value={position}
+                                                key={career.id}
+                                                value={career.attributes.position}
                                                 className={({ active }) =>
                                                     classNames(
                                                         'relative cursor-default select-none py-2 pl-3 pr-9',
@@ -200,7 +157,59 @@ export default function SelectSearch() {
                                             >
                                                 {({ active, selected }) => (
                                                     <>
-                                                        <span className={classNames('block truncate', selected && 'font-semibold')}>{position.name}</span>
+                                                        <span className={classNames('block truncate', selected && 'font-semibold')}>{career.attributes.position}</span>
+
+                                                        {selected && (
+                                                            <span
+                                                                className={classNames(
+                                                                    'absolute inset-y-0 right-0 flex items-center pr-4',
+                                                                    active ? 'text-white' : 'text-primary_600'
+                                                                )}
+                                                            >
+                                                                <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                                            </span>
+                                                        )}
+                                                    </>
+                                                )}
+                                            </Combobox.Option>
+                                        ))}
+                                    </Combobox.Options>
+                                )}
+                            </div>
+                        </Combobox>
+
+                    </div>
+
+                    {/* career */}
+                    <div className="mt-4 lg:mt-0 sm:justify-center">
+                        <Combobox as="div" value={selectedCareer} onChange={setselectedCareer}>
+                            <Combobox.Label className="block text-sm font-medium text-gray-700">Career</Combobox.Label>
+                            <div className="relative mt-1">
+                                <Combobox.Input
+                                    className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-primary_500 focus:outline-none focus:ring-1 focus:ring-primary_500 sm:text-sm"
+                                    onChange={(event) => setQuery(event.target.value)}
+                                    displayValue={(career) => career?.id}
+                                />
+                                <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
+                                    <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                                </Combobox.Button>
+
+                                {filteredCareer.length > 0 && (
+                                    <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                        {filteredCareer.map((career) => (
+                                            <Combobox.Option
+                                                key={career.id}
+                                                value={career.attributes.caption}
+                                                className={({ active }) =>
+                                                    classNames(
+                                                        'relative cursor-default select-none py-2 pl-3 pr-9',
+                                                        active ? 'bg-primary_600 text-white' : 'text-gray-900'
+                                                    )
+                                                }
+                                            >
+                                                {({ active, selected }) => (
+                                                    <>
+                                                        <span className={classNames('block truncate', selected && 'font-semibold')}>{career.attributes.caption}</span>
 
                                                         {selected && (
                                                             <span

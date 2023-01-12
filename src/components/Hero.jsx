@@ -1,26 +1,54 @@
 
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
-import React, { Component } from 'react';
+import React from 'react';
+import axios from 'axios';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
+import { object } from 'prop-types';
 
-export default class Hero extends Component {
-    constructor() {
-        super()
+const token = 'f857d0e1f312b1f8043fd167da2ccc92ad5165bb26c27c35e3428b54441fea5b735c3d0287bd662be84213e9b2c03d54fc54b0ecac0264ccab4a1b8e4d610812c19d030cf61c879fa496b50ac1e26e028abd63dfd2c47df6147d0387f498eee9502082e1a4f1a8ecaffe13be3a6c54b7b667d5c8a075397da508e9f31babd7c4'
+const config = {
+    headers: { Authorization: `Bearer ${token}` }
+};
+
+export default class Hero extends React.Component {
+    constructor(props) {
+        super(props);
         this.state = {
+            careers: [],
+
             startCounter: false
-        }
+        };
     }
+
+    componentDidMount() {
+        axios.get('https://careerkh-api.up.railway.app/api/careers', config)
+            .then(res => {
+                console.log('test res.data hero')
+                console.log(res.data.data)
+                this.setState({ careers: res.data.data })
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
 
     onVisibilityChange = isVisible => {
         if (isVisible) {
             this.setState({ startCounter: true });
         }
     }
-    render() {
-        return (
-            <div className="relative overflow-hidden" >
 
+
+
+    render() {
+        const { careers } = this.state;
+
+        return (
+
+            <div className="relative overflow-hidden" >
                 <main>
                     <div className=" pt-2 sm:pt-2 lg:overflow-auto lg:pt-0 lg:pb-1 md:pt-1 ">
                         <div className="mx-auto mt-3 mb-20 max-w-7xl lg:px-8">
@@ -63,18 +91,17 @@ export default class Hero extends Component {
                                                     <div className="">
                                                         <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                                                             <span className="block text-primary sm:flex justify-center font-righteous">
-                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? 100 : 0} /></VisibilitySensor>
+                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? 1 : 0} /></VisibilitySensor>
                                                             </span>
                                                         </h1>
                                                         <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl font-inter">
-                                                            Categories
+                                                            Industries
                                                         </p>
                                                     </div>
                                                     <div className="">
                                                         <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                                                             <span className="block text-primary sm:flex justify-center font-righteous">
-                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? 200 : 0} /></VisibilitySensor>
-
+                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? careers.length : "..."} /></VisibilitySensor>
                                                             </span>
                                                         </h1>
                                                         <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl font-inter">
@@ -84,7 +111,7 @@ export default class Hero extends Component {
                                                     <div className="">
                                                         <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                                                             <span className="block text-primary sm:flex justify-center font-righteous">
-                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? 30 : 0} /></VisibilitySensor>
+                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? 3 : 0} /></VisibilitySensor>
 
                                                             </span>
                                                         </h1>

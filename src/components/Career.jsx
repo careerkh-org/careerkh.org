@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import spinner from  '../assets/Spinner.svg'
+import spinner from '../assets/Spinner.svg'
 const token = '3112f54c3d928547abb0e005c1325f381fb33dc2a53953849f5bf7984633ab77052d2331dbbdb312c388b3cfda8baea1437676586769d2c9e06a95d73865ae62f76b6057e2274968f244f4e3937ad9a30d4c1bc6aec88cfd9250838c7925dca675abeb3fb51adfe63a8c1aab7f0c7057efc987b9dee70840639d144835d78e6b'
 const config = {
     headers: { Authorization: `Bearer ${token}` }
@@ -22,20 +22,20 @@ export default function Career() {
     }, [])
     return (
         <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-0 lg:pb-14">
-                            <div className="text-center">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Careers</h2>
-                </div>
-                <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-7xl lg:grid-cols-2">
-                    {data && data.length
-                        ? data.slice(data.length - 5, data.length).map((career) => (
-                            <div key={career.attributes.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                                <div className="flex-shrink-0">
-                                    <img className="h-48 w-full object-cover" src={career.attributes.imageUrl} alt="" />
-                                </div>
-                                <div className="flex flex-1 flex-col justify-between bg-white p-6">
-                                    <div className="flex-1">
-                                        <a href={career.attributes.href} className="mt-2 block">
-                                            <div className='grid grid-flow-row-dense grid-cols-3'>
+            <div className="text-center">
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Careers</h2>
+            </div>
+            <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-7xl lg:grid-cols-2">
+                {data && data.length
+                    ? data.map((career) => (
+                        <div key={career.attributes.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div className="flex-shrink-0">
+                                <img className="h-48 w-full object-cover" src={career.attributes.imageUrl} alt="" />
+                            </div>
+                            <div className="flex flex-1 flex-col justify-between bg-white p-6">
+                                <div className="flex-1">
+                                    <a href={career.attributes.href} className="mt-2 block">
+                                        <div className='grid grid-flow-row-dense grid-cols-3'>
 
                                             <div className=' col-span-2'>
                                                 <p className="text-xl font-semibold text-gray-900">{career.attributes.position}</p>
@@ -79,19 +79,19 @@ export default function Career() {
 
                                         </div>
 
-                                        </a>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
-                        )) : 
-                        <section class="hero container max-w-screen-lg mx-auto pb-10 text-center mt-10 col-span-3">
+                        </div>
+                    )) :
+                    <section class="hero container max-w-screen-lg mx-auto pb-10 text-center mt-10 col-span-3">
                         <img className='mx-auto w-20' src={spinner} alt="loading" />
                         <h1 className="text-1xl font-light text-green-600">
                             Please Wait!
                         </h1>
-                        </section>
-                    }
-                </div>
+                    </section>
+                }
+            </div>
         </div>
     )
 }

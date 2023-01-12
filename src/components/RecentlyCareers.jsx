@@ -1,20 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import spinner from  '../assets/Spinner.svg'
-const token = '3112f54c3d928547abb0e005c1325f381fb33dc2a53953849f5bf7984633ab77052d2331dbbdb312c388b3cfda8baea1437676586769d2c9e06a95d73865ae62f76b6057e2274968f244f4e3937ad9a30d4c1bc6aec88cfd9250838c7925dca675abeb3fb51adfe63a8c1aab7f0c7057efc987b9dee70840639d144835d78e6b'
+import spinner from '../assets/Spinner.svg'
+
+const token = 'f857d0e1f312b1f8043fd167da2ccc92ad5165bb26c27c35e3428b54441fea5b735c3d0287bd662be84213e9b2c03d54fc54b0ecac0264ccab4a1b8e4d610812c19d030cf61c879fa496b50ac1e26e028abd63dfd2c47df6147d0387f498eee9502082e1a4f1a8ecaffe13be3a6c54b7b667d5c8a075397da508e9f31babd7c4'
 const config = {
     headers: { Authorization: `Bearer ${token}` }
 };
 
 export default function RecentlyCareers() {
     const [ careers, setCareers ] = useState([]);
+    const [ locations, setLocations ] = useState([]);
+
     const { data } = careers;
 
     useEffect(() => {
         axios.get('https://careerkh-api.up.railway.app/api/careers', config)
             .then(res => {
-                console.log(res)
+                console.log('test res.data rec')
+
+                console.log(res.data)
                 setCareers(res.data)
+                setLocations(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -22,7 +28,7 @@ export default function RecentlyCareers() {
     }, [])
     return (
         <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-10 lg:pb-14">
-            <div className="absolute inset-0">  
+            <div className="absolute inset-0">
                 <div className="h-1/3 bg-white sm:h-2/3" />
             </div>
             <div className="relative mx-auto max-w-7xl">
@@ -78,12 +84,12 @@ export default function RecentlyCareers() {
                                     </button>
                                 </div>
                             </div>
-                        )) : 
+                        )) :
                         <section class="hero container max-w-screen-lg mx-auto pb-10 text-center mt-10 col-span-3">
-                        <img className='mx-auto w-20' src={spinner} alt="loading" />
-                        <h1 className="text-1xl font-light text-green-600">
-                            Please Wait!
-                        </h1>
+                            <img className='mx-auto w-20' src={spinner} alt="loading" />
+                            <h1 className="text-1xl font-light text-green-600">
+                                Please Wait!
+                            </h1>
                         </section>
                     }
                 </div>
