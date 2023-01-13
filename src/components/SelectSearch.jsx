@@ -9,72 +9,77 @@ const config = {
     headers: { Authorization: `Bearer ${token}` }
 };
 
-const industry = [
-    { id: 0, name: 'Information Technology' },
-]
-
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
 export default function SelectSearch() {
     const [ careers, setCareers ] = useState([])
-    const { data } = careers
+    const [ industries, setIndustries ] = useState([])
+    const [ locations, setLocations ] = useState([])
 
-    const [ query, setQuery ] = useState('')
-    const [ selectedIndustry, setselectedIndustry ] = useState(industry[ 0 ])
-    const [ selectedPosition, setselectedPosition ] = useState(data)
-    const [ selectedCareer, setselectedCareer ] = useState(data)
+    const [ careersQuery, setCareersQuery ] = useState('')
+    const [ industriesQuery, setIndustriesQuery ] = useState('')
+    const [ locationsQuery, setLocationsQuery ] = useState('')
+
+    const [ selectedCareer, setselectedCareer ] = useState(careers)
+    const [ selectedIndustry, setselectedIndustry ] = useState(industries)
+    const [ selectedLocation, setselectedLocation ] = useState(locations)
+
+    let endpoints = [
+        'https://careerkh-api.up.railway.app/api/careers?populate=locations&populate=industries',
+        'https://careerkh-api.up.railway.app/api/industries',
+        'https://careerkh-api.up.railway.app/api/locations',
+    ];
 
     useEffect(() => {
-        axios.get('https://careerkh-api.up.railway.app/api/careers', config)
-            .then(res => {
-                console.log('SelectSearch')
-                console.log(res.data.data)
+        axios.all(endpoints.map((endpoint) => axios.get(endpoint, config))).then(
+            axios.spread(({ data: careers }, { data: industries }, { data: locations }) => {
+                setCareers(careers.data)
+                setIndustries(industries.data)
+                setLocations(locations.data)
 
-                setCareers(res.data.data)
-
-
+                console.log("SelectSearch")
+                console.log({ careers, industries, locations });
             })
-            .catch(err => {
-                console.log(err)
-            })
+        );
     }, [])
 
     const filteredIndustry =
-        query === ''
-            ? industry
-            : industry.filter((industry) => {
-                return industry.name.toLowerCase().includes(query.toLowerCase())
+        industriesQuery === ''
+            ? industries
+            : industries.filter((industry) => {
+                return industry.attributes.name.toLowerCase().includes(industriesQuery.toLowerCase())
             })
 
-    const filteredPosition =
-        query === ''
-            ? careers
-            : careers.attributes.position.filter((position) => {
-                return position.toLowerCase().includes(query.toLowerCase())
+    const filteredLocation =
+        locationsQuery === ''
+            ? locations
+            : locations.filter((location) => {
+                return location.attributes.city.toLowerCase().includes(locationsQuery.toLowerCase())
             })
     const filteredCareer =
-        query === ''
+        careersQuery === ''
             ? careers
-            : careers.attributes.caption.filter((caption) => {
-                return caption.toLowerCase().includes(query.toLowerCase())
+            : careers.filter((career) => {
+                return career.attributes.caption.toLowerCase().includes(careersQuery.toLowerCase())
             })
     return (
         <div className="bg-primary_300" aria-labelledby="footer-heading">
-            {/* <ul>
-                {
-                    careers
-                        .map(career =>
-                            <li key={career.id}>{career.attributes.position}</li>
-                        )
-                }
-            </ul> */}
+
+
+
+            {/* <p>test length: {careers.length}</p>
+
+            <p>test attributes: </p>
+            {careers && careers.length ? careers.map((career) => (
+                <p>{career.attributes.caption}</p>
+            )) : 0} */}
+
+
+
             <div className="mx-auto max-w-7xl py-7 px-4 sm:px-6 lg:py-10 lg:px-8 ">
-
                 <div className=" pt-4 lg:flex lg:items-center lg:justify-evenly xl:mt-0 ">
-
-
                     {/* industry */}
                     <div className="mt-4 lg:mt-0 sm:justify-center">
                         <Combobox as="div" value={selectedIndustry} onChange={setselectedIndustry}>
@@ -82,20 +87,18 @@ export default function SelectSearch() {
                             <div className="relative mt-1">
                                 <Combobox.Input
                                     className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-primary_500 focus:outline-none focus:ring-1 focus:ring-primary_500 sm:text-sm"
-                                    onChange={(event) => setQuery(event.target.value)}
-                                    displayValue={(career) => career?.name}
-
+                                    onChange={(event) => setIndustriesQuery(event.target.value)}
+                                    displayValue={(industries) => industries.attributes?.name}
                                 />
                                 <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
                                     <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                                 </Combobox.Button>
-
                                 {filteredIndustry.length > 0 && (
                                     <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                        {filteredIndustry.map((career) => (
+                                        {filteredIndustry.map((industry) => (
                                             <Combobox.Option
-                                                key={career.id}
-                                                value={career}
+                                                key={industry.id}
+                                                value={industry}
                                                 className={({ active }) =>
                                                     classNames(
                                                         'relative cursor-default select-none py-2 pl-3 pr-9',
@@ -105,8 +108,7 @@ export default function SelectSearch() {
                                             >
                                                 {({ active, selected }) => (
                                                     <>
-                                                        <span className={classNames('block truncate', selected && 'font-semibold')}>{career.name}</span>
-
+                                                        <span className={classNames('block truncate', selected && 'font-semibold')}>{industry.attributes.name}</span>
                                                         {selected && (
                                                             <span
                                                                 className={classNames(
@@ -125,29 +127,28 @@ export default function SelectSearch() {
                                 )}
                             </div>
                         </Combobox>
-
                     </div>
 
-                    {/* position */}
+                    {/* location */}
                     <div className="mt-4 lg:mt-0 sm:justify-center">
-                        <Combobox as="div" value={selectedPosition} onChange={setselectedPosition}>
-                            <Combobox.Label className="block text-sm font-medium text-gray-700">Position</Combobox.Label>
+                        <Combobox as="div" value={selectedLocation} onChange={setselectedLocation}>
+                            <Combobox.Label className="block text-sm font-medium text-gray-700">Location</Combobox.Label>
                             <div className="relative mt-1">
                                 <Combobox.Input
                                     className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-primary_500 focus:outline-none focus:ring-1 focus:ring-primary_500 sm:text-sm"
-                                    onChange={(event) => setQuery(event.target.value)}
-                                    displayValue={(career) => career?.id}
+                                    onChange={(event) => setLocationsQuery(event.target.value)}
+                                    displayValue={(locations) => locations.attributes?.city}
                                 />
                                 <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
                                     <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                                 </Combobox.Button>
 
-                                {filteredPosition.length > 0 && (
+                                {filteredLocation.length > 0 && (
                                     <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                        {filteredPosition.map((career) => (
+                                        {filteredLocation.map((location) => (
                                             <Combobox.Option
-                                                key={career.id}
-                                                value={career.attributes.position}
+                                                key={location.id}
+                                                value={location}
                                                 className={({ active }) =>
                                                     classNames(
                                                         'relative cursor-default select-none py-2 pl-3 pr-9',
@@ -157,7 +158,7 @@ export default function SelectSearch() {
                                             >
                                                 {({ active, selected }) => (
                                                     <>
-                                                        <span className={classNames('block truncate', selected && 'font-semibold')}>{career.attributes.position}</span>
+                                                        <span className={classNames('block truncate', selected && 'font-semibold')}>{location.attributes.city}</span>
 
                                                         {selected && (
                                                             <span
@@ -187,8 +188,8 @@ export default function SelectSearch() {
                             <div className="relative mt-1">
                                 <Combobox.Input
                                     className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-primary_500 focus:outline-none focus:ring-1 focus:ring-primary_500 sm:text-sm"
-                                    onChange={(event) => setQuery(event.target.value)}
-                                    displayValue={(career) => career?.id}
+                                    onChange={(event) => setCareersQuery(event.target.value)}
+                                    displayValue={(career) => career.attributes?.caption}
                                 />
                                 <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
                                     <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -199,7 +200,7 @@ export default function SelectSearch() {
                                         {filteredCareer.map((career) => (
                                             <Combobox.Option
                                                 key={career.id}
-                                                value={career.attributes.caption}
+                                                value={career}
                                                 className={({ active }) =>
                                                     classNames(
                                                         'relative cursor-default select-none py-2 pl-3 pr-9',
@@ -241,7 +242,7 @@ export default function SelectSearch() {
                         </button>
                         <button
                             type="button"
-                            className="inline-flex items-center rounded border border-transparent bg-green-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 font-inter"
+                            className="inline-flex items-center rounded border border-transparent bg-primary_600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm  hover:bg-primary_700 font-inter"
                         >
                             Submit
                         </button>

@@ -16,21 +16,32 @@ export default class Hero extends React.Component {
         super(props);
         this.state = {
             careers: [],
+            industries: [],
+            locations: [],
             startCounter: false
         };
     }
 
     componentDidMount() {
-        axios.get('https://careerkh-api.up.railway.app/api/careers?populate=locations&populate=industries', config)
-            .then(res => {
-                console.log('Hero')
-                console.log(res.data.data)
-                this.setState({ careers: res.data.data })
+        let endpoints = [
+            'https://careerkh-api.up.railway.app/api/careers?populate=locations&populate=industries',
+            'https://careerkh-api.up.railway.app/api/industries',
+            'https://careerkh-api.up.railway.app/api/locations',
+        ];
 
+        axios.all(endpoints.map((endpoint) => axios.get(endpoint, config))).then(
+            axios.spread(({ data: careers }, { data: industries }, { data: locations }) => {
+                this.setState({ careers: careers.data })
+                this.setState({ industries: industries.data })
+                this.setState({ locations: locations.data })
+
+                console.log("Hero")
+                console.log({ careers, industries, locations });
             })
-            .catch(err => {
-                console.log(err)
-            })
+        );
+
+
+
     }
 
 
@@ -43,16 +54,10 @@ export default class Hero extends React.Component {
 
 
     render() {
-        const { careers } = this.state;
 
         return (
-
             <div className="relative overflow-hidden" >
-
                 <main>
-
-
-
 
                     <div className=" pt-2 sm:pt-2 lg:overflow-auto lg:pt-0 lg:pb-1 md:pt-1 ">
                         <div className="mx-auto mt-3 mb-20 max-w-7xl lg:px-8">
@@ -95,7 +100,7 @@ export default class Hero extends React.Component {
                                                     <div className="">
                                                         <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                                                             <span className="block text-primary sm:flex justify-center font-righteous">
-                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? careers && 1 : 0} /></VisibilitySensor>
+                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? this.state.industries.length : 0} /></VisibilitySensor>
                                                             </span>
                                                         </h1>
                                                         <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl font-inter">
@@ -105,7 +110,7 @@ export default class Hero extends React.Component {
                                                     <div className="">
                                                         <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                                                             <span className="block text-primary sm:flex justify-center font-righteous">
-                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? careers.length : "..."} /></VisibilitySensor>
+                                                                <VisibilitySensor onChange={this.onVisibilityChange} offset={{ top: 10 }} delayedCall><CountUp end={this.state.startCounter ? this.state.careers.length : 0} /></VisibilitySensor>
                                                             </span>
                                                         </h1>
                                                         <p className="mt-3 text-base text-black-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl font-inter">
