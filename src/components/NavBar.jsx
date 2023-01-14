@@ -93,22 +93,23 @@ export default function NavBar() {
                                         </NavLink>
 
 
-                                        <SearchBar placeholder={"Search"} data={value} />
 
 
-                                        <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
-
-                                            <NavLink to="/myaccount">
-                                                <button
-                                                    type="button"
-                                                    className="inline-flex items-center rounded border border-transparent bg-primary px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none"
-                                                >
-                                                    Account
-                                                </button>
-                                            </NavLink>
-                                        </div>
 
 
+
+                                    </div>
+                                    <SearchBar placeholder={"Search careers"} data={value} />
+                                    <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
+
+                                        <NavLink to="/myaccount">
+                                            <button
+                                                type="button"
+                                                className="inline-flex items-center rounded border border-transparent bg-primary px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none"
+                                            >
+                                                Account
+                                            </button>
+                                        </NavLink>
                                     </div>
                                 </div>
 
@@ -172,6 +173,7 @@ export default function NavBar() {
                                     Forum
                                 </Disclosure.Button>
                             </NavLink>
+
 
 
                             <NavLink to="/myaccount">
