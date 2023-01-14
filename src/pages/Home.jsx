@@ -11,7 +11,7 @@ const Home = () => {
     <>
       <NavBar />
       <Hero />
-      <SelectSearch />
+      {/* <SelectSearch /> */}
       <RecentlyCareers />
       <FAQ />
       <Footer />
