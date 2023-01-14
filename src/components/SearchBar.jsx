@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
-import "./SearchBar.css"
+
 function SearchBar({ placeholder, data }) {
     const [ filteredData, setFilteredData ] = useState([]);
     const [ wordEntered, setWordEntered ] = useState("");
@@ -27,7 +27,7 @@ function SearchBar({ placeholder, data }) {
     };
 
     return (
-        <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-start pl-28">
+        <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-start lg:pl-28">
             <div className="w-100 max-w-lg lg:max-w-xs">
 
                 <div className="relative ">
@@ -53,13 +53,12 @@ function SearchBar({ placeholder, data }) {
                         className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-green-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-green-500 sm:text-sm"
                     />
 
-
                 </div>
                 {filteredData.length != 0 && (
-                    <div className="dataResult">
+                    <div className="mt-1 bg-white overflow-auto overflow-y-auto block absolute z-10 shadow w-52 h-80">
                         {filteredData.slice(0, 15).map((value, key) => {
                             return (
-                                <a className="dataItem hover:" href={value.attributes.href} target="_blank">
+                                <a className="pl-2 w-full h-12 flex items-center  text-black hover:text-white hover:bg-primary_700 " href={value.attributes.href} target="_blank">
                                     <p>{value.attributes.caption} </p>
                                 </a>
                             );
