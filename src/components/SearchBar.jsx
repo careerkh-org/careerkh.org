@@ -53,7 +53,6 @@ function SearchBar({ placeholder, data }) {
                         className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-green-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-green-500 sm:text-sm"
                     />
 
-
                 </div>
                 {filteredData.length != 0 && (
                     <div className="mt-1 bg-white overflow-auto overflow-y-auto block absolute z-10 shadow w-52 h-80">
