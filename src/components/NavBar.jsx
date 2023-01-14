@@ -2,14 +2,35 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
-import { Outlet, NavLink,useNavigate } from "react-router-dom";
+import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import { UserAuth } from '../context/AuthContext';
 import logo from '../assets/careerkh_hr_text.png'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import SearchBar from "./SearchBar";
+
+const token = '7184cdcc318b099cf5c37e08014d29cfa662264dbb7ded22db66652abb778b3368b9f17526fd0e9608ef44fcc3a52ef1f4308b1caf69780975c766d2f78b07b4e86f8be063ca4327fff16c347e40e402c43d624cf1d9481a702c48d700fdb507077f45b91be32508226e13c63374ee49e877caf67c743ef2fcc41309adaf9194'
+const config = {
+    headers: { Authorization: `Bearer ${token}` }
+};
+
 export default function NavBar() {
     const [ enabled, setEnabled ] = useState(false);
     const { user } = UserAuth();
     const navigate = useNavigate();
+    const [ value, setValue ] = useState([]);
+
+    useEffect(() => {
+        axios.get('https://careerkh-api.up.railway.app/api/careers', config)
+            .then(res => {
+                console.log('NavBar')
+                console.log(res.data.data)
+                setValue(res.data.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
 
     return (
         <Disclosure as="nav">
@@ -17,13 +38,14 @@ export default function NavBar() {
                 <>
                     <nav>
                         <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8 ">
+                            {/* <p1>test: {careers.length}</p1> */}
                             <div className="flex h-16 sm:justify-center lg:justify-evenly max-sm:justify-center ">
                                 <div className="flex px-2 lg:px-0 ">
                                     <div className="flex flex-shrink-0 items-center ">
                                         <NavLink to="/" >
                                             <img
                                                 className="block h-20 w-auto lg:hidden"
-                                                src= {logo}
+                                                src={logo}
                                                 alt="Company"
                                             />
                                             <img
@@ -69,38 +91,20 @@ export default function NavBar() {
                                         >
                                             Forum
                                         </NavLink>
-                                        <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-start pl-28">
-                                            <div className="w-100 max-w-lg lg:max-w-xs">
-                                                <label htmlFor="search" className="sr-only font-inter">
-                                                    Search
-                                                </label>
-                                                <div className="relative">
-                                                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                                        <MagnifyingGlassIcon
-                                                            className="h-5 w-5 text-gray-400"
-                                                            aria-hidden="true"
-                                                        />
-                                                    </div>
-                                                    <input
-                                                        id="search"
-                                                        name="search"
-                                                        className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-green-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-green-500 sm:text-sm"
-                                                        placeholder="Search"
-                                                        type="search"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
+
+
+                                        <SearchBar placeholder={"Search"} data={value} />
+
+
                                         <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
-                                        
+
                                             <NavLink to="/myaccount">
-                                            <button
-                                                type="button"
-                                                className="inline-flex items-center rounded border border-transparent bg-primary px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none"
-                                            >
-                                                Account
-                                            </button>
+                                                <button
+                                                    type="button"
+                                                    className="inline-flex items-center rounded border border-transparent bg-primary px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none"
+                                                >
+                                                    Account
+                                                </button>
                                             </NavLink>
                                         </div>
 
@@ -154,7 +158,7 @@ export default function NavBar() {
                                     as="a"
                                     href="#"
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
-                                
+
                                 >
                                     Roadmap
                                 </Disclosure.Button>
@@ -169,15 +173,15 @@ export default function NavBar() {
                                 </Disclosure.Button>
                             </NavLink>
 
-                
+
                             <NavLink to="/myaccount">
-                            <Disclosure.Button
-                                type="button"
-                                className="block border-l-4 rounded-md bg-primary border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-100 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
+                                <Disclosure.Button
+                                    type="button"
+                                    className="block border-l-4 rounded-md bg-primary border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-100 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
                                 >
                                     Account
-                            </Disclosure.Button>
-                            </NavLink>        
+                                </Disclosure.Button>
+                            </NavLink>
 
                         </div>
                     </Disclosure.Panel>
