@@ -81,13 +81,18 @@ export default function RecentlyCareers() {
 
                                         </a>
                                     </div>
-
-                                    <button
-                                        type="button"
-                                        className="inline-flex items-center rounded-md border border-transparent bg-primary_600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary_700 justify-center mt-6"
+                                    <a href={career.attributes.href} className="inline-flex items-center rounded-md border border-transparent bg-primary_600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary_700 justify-center mt-6"
                                     >
-                                        More
-                                    </button>
+
+                                        <button
+                                            type="button"
+                                        >
+
+                                            More
+
+                                        </button>
+                                    </a>
+
                                 </div>
                             </div>
                         )) :

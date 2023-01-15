@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import spinner from '../assets/Spinner.svg'
+
 const token = '7184cdcc318b099cf5c37e08014d29cfa662264dbb7ded22db66652abb778b3368b9f17526fd0e9608ef44fcc3a52ef1f4308b1caf69780975c766d2f78b07b4e86f8be063ca4327fff16c347e40e402c43d624cf1d9481a702c48d700fdb507077f45b91be32508226e13c63374ee49e877caf67c743ef2fcc41309adaf9194'
 const config = {
     headers: { Authorization: `Bearer ${token}` }
@@ -9,13 +10,13 @@ const config = {
 export default function Roadmap() {
 
     const [ careers, setCareers ] = useState([]);
-    const { data } = careers;
 
     useEffect(() => {
-        axios.get('https://careerkh-api.up.railway.app/api/careers', config)
+        axios.get('https://careerkh-api.up.railway.app/api/careers?populate=locations&populate=industries', config)
             .then(res => {
-                console.log(res)
-                setCareers(res.data)
+                console.log('RecetlyCareers')
+                console.log(res.data.data)
+                setCareers(res.data.data)
             })
             .catch(err => {
                 console.log(err)
@@ -27,8 +28,8 @@ export default function Roadmap() {
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Roadmaps</h2>
             </div>
             <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-7xl lg:grid-cols-2">
-                {data && data.length
-                    ? data.map((career) => (
+                {careers && careers.length
+                    ? careers.map((career) => (
                         <div key={career.attributes.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
                             <div className="flex-shrink-0">
                                 <img className="h-48 w-full object-cover" src={career.attributes.imageUrl} alt="" />
@@ -48,7 +49,12 @@ export default function Roadmap() {
                                                 </div>
 
                                                 <div className="flex align-middle items-center text-center py-2">
-                                                    <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>                                            <p className="mx-3 text-base text-gray-500">{career.attributes.location}</p>
+                                                    <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                                    <p className="mx-3 text-base text-gray-500">
+                                                        {career.attributes.locations.data.map((location) => (
+                                                            <h1>{location.attributes.city}</h1>
+                                                        ))}
+                                                    </p>
                                                 </div>
 
                                                 <div className="flex align-middle items-center text-center py-2">

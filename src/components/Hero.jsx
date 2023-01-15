@@ -59,7 +59,7 @@ export default class Hero extends React.Component {
             <div className="relative overflow-hidden h-screen" >
                 <main>
 
-                    <div className=" pt-2 sm:pt-2 lg:overflow-auto lg:pt-24 lg:pb-1 md:pt-1 ">
+                    <div className=" pt-2 sm:pt-2 lg:overflow-auto lg:pt-16 lg:pb-1 md:pt-1 ">
                         <div className="mx-auto mt-3  max-w-7xl lg:px-8">
                             <div className="lg:grid lg:grid-cols-2 lg:gap-8 ">
                                 <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:flex lg:items-center lg:px-0 lg:text-left">
