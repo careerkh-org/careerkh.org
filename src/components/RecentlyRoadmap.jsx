@@ -10,7 +10,6 @@ const config = {
 export default function RecentlyRoadmap() {
     const [ careers, setCareers ] = useState([]);
 
-
     useEffect(() => {
         axios.get('https://careerkh-api.up.railway.app/api/careers?populate=locations&populate=industries', config)
             .then(res => {
