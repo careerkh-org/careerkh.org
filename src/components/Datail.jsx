@@ -21,7 +21,7 @@ export default function Detail() {
             })
     }, [])
     return (
-        <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-14">
+        <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-12 lg:pb-14 ">
                 <div className='box-border h-auto w-7/8 p-4 border-2 border-black rounded-lg' >
                     <h1 className=' text-center text-2xl font-bold'>
                         ReactJS Developer 
