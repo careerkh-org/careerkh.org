@@ -31,7 +31,7 @@ export default function Category() {
                         to="/careersdetail"
                     >
                       <a>
-                        <span className="absolute inset-0" />
+                        
                         Developer
                       </a>
                       </Link>
