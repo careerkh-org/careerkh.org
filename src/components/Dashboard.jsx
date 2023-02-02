@@ -12,9 +12,9 @@ const dashboard = () => {
     try {
       await logout();
 
-        navigate('/');
+      navigate('/');
 
-    
+
       console.log('You are logged out')
     } catch (e) {
       console.log(e.message);

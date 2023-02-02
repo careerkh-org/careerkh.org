@@ -6,7 +6,7 @@ import hero from "./Hero"
 import recentlycareers from "./RecentlyCareers"
 import selectsearch from "./SelectSearch"
 
-export{
+export {
     navBar,
     error404,
     faq,

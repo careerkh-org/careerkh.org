@@ -9,7 +9,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from "./SearchBar";
 
-const token = '7184cdcc318b099cf5c37e08014d29cfa662264dbb7ded22db66652abb778b3368b9f17526fd0e9608ef44fcc3a52ef1f4308b1caf69780975c766d2f78b07b4e86f8be063ca4327fff16c347e40e402c43d624cf1d9481a702c48d700fdb507077f45b91be32508226e13c63374ee49e877caf67c743ef2fcc41309adaf9194'
+const token = '1f3426922e233fe969712a6f46f57e588cab4bca4a5b8efdb6396734c1a58f83250be628158c2923248201b56958e2961006879888f03dbb3f0720e99d57dcbb7df84b57decd85afdcd349e0bc9c9d778c1b4d11d81da7227ebc625fbb8c308859aaf8eaa8b9b0bf11ea04d7996114f065dcaf251dad43dc0895cb39b61efa2d'
 const config = {
     headers: { Authorization: `Bearer ${token}` }
 };
@@ -21,7 +21,7 @@ export default function NavBar() {
     const [ value, setValue ] = useState([]);
 
     useEffect(() => {
-        axios.get('https://careerkh-api.up.railway.app/api/careers', config)
+        axios.get('https://careerkh-backend.up.railway.app/api/careers', config)
             .then(res => {
                 console.log('NavBar')
                 console.log(res.data.data)
