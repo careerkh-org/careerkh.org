@@ -13,7 +13,7 @@ export default function Career() {
     useEffect(() => {
         axios.get('https://careerkh-backend.up.railway.app/api/careers?populate=locations&populate=industries', config)
             .then(res => {
-                console.log(res)
+                console.log(res) 
                 setCareers(res.data)
             })
             .catch(err => {
