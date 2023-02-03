@@ -1,41 +1,24 @@
 const faqs = [
     {
         id: 1,
-        question: "What's the best thing about Switzerland?",
+        question: "What's the best careers in cambodia?",
         answer:
-            "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+            "Any job is good. But it's up to you to decide what you like and what you do.",
     },
     {
         id: 2,
-        question: "What's the best thing about Switzerland?",
+        question: "What is careerkh?",
         answer:
-            "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+            "CareerKh is a platform build on website base that provide career information, right requirement, skills, roadmap and forum.",
     },
     {
         id: 3,
-        question: "What's the best thing about Switzerland?",
+        question: "Who is behind Careerkh development?",
         answer:
-            "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+            "A group of student from RUPP, FE, ITE, G7 A that build this website to complate course.",
     },
-    {
-        id: 4,
-        question: "What's the best thing about Switzerland?",
-        answer:
-            "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-    },
-    {
-        id: 5,
-        question: "What's the best thing about Switzerland?",
-        answer:
-            "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-    },
-    {
-        id: 6,
-        question: "What's the best thing about Switzerland?",
-        answer:
-            "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-    },
-    // More questions...
+  
+
 ]
 
 export default function FAQ() {

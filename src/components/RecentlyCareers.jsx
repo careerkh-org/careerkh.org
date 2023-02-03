@@ -33,7 +33,7 @@ export default function RecentlyCareers() {
                 <div className="text-center">
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Recently Careers</h2>
                     <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
+                    For information on requirement and skills for a job, go to careerkh page. To read about recent Career to the build your own ideas.
 
                     </p>
                 </div>
