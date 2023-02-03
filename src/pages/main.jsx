@@ -25,12 +25,13 @@ const main = () => {
       <Route path='/' element={<Home/>}></Route>
       <Route path='/careers' element={<Careers/>}></Route>
       <Route path='/roadmap' element={<Roadmap/>}></Route>
-      <Route path='/forum' element={<Forum/>}></Route>
       <Route path='/Login' element={<Login/>}></Route>
+
       <Route path='/signup' element={<Signup/>}></Route>
       <Route path='/careersdetail' element={<CareersDetail/>}></Route>
       <Route path='/myaccount' element={<ProtectedRoute><Myaccount/></ProtectedRoute> }></Route>
       <Route path='*' element={<Error404/>}></Route>
+      <Route path="/forum" element={<External />} />
     </Routes>
     
       </AuthContextProvider>
@@ -38,5 +39,8 @@ const main = () => {
   </React.StrictMode>
   );
 };
-
+function External() {
+  window.location.href = 'https://forum.careerkh.org/';
+  return null;
+}
 export default main;

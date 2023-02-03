@@ -82,32 +82,16 @@ export default function NavBar() {
                                         >
                                             Roadmap
                                         </NavLink>
-
-                                        <NavLink
-
-                                            to="/forum" className={({ isActive }) =>
-                                                isActive ? 'inline-flex items-center border-b-2 border-primary  px-1 pt-1 text-sm font-medium text-black hover:border-gray-300 hover:text-primary_700 font-inter' : 'inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 font-inter'
-                                            }
-                                        >
-                                            Forum
-                                        </NavLink>
-
-
-
-
-
-
-
                                     </div>
                                     <SearchBar placeholder={"Search careers"} data={value} />
                                     <div className="hidden lg:ml-4 lg:flex lg:items-center lg:space-x-6">
 
-                                        <NavLink to="/myaccount">
+                                        <NavLink to="/forum">
                                             <button
                                                 type="button"
                                                 className="inline-flex items-center rounded border border-transparent bg-primary px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary_700 focus:outline-none"
                                             >
-                                                Account
+                                                Forum
                                             </button>
                                         </NavLink>
                                     </div>
@@ -164,24 +148,16 @@ export default function NavBar() {
                                     Roadmap
                                 </Disclosure.Button>
                             </NavLink>
-                            <NavLink to="/forum">
-                                <Disclosure.Button
-                                    as="a"
-                                    href="#"
-                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
-                                >
-                                    Forum
-                                </Disclosure.Button>
-                            </NavLink>
+                    
 
 
 
-                            <NavLink to="/myaccount">
+                            <NavLink to="/forum" href="https://forum.careerkh.org/">
                                 <Disclosure.Button
                                     type="button"
                                     className="block border-l-4 rounded-md bg-primary border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-100 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 font-inter"
                                 >
-                                    Account
+                                    Forum
                                 </Disclosure.Button>
                             </NavLink>
 
@@ -191,4 +167,5 @@ export default function NavBar() {
             )}
         </Disclosure>
     );
+  
 }
