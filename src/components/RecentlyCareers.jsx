@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import spinner from '../assets/Spinner.svg'
-
+import { Link } from 'react-router-dom';
 const token = '1f3426922e233fe969712a6f46f57e588cab4bca4a5b8efdb6396734c1a58f83250be628158c2923248201b56958e2961006879888f03dbb3f0720e99d57dcbb7df84b57decd85afdcd349e0bc9c9d778c1b4d11d81da7227ebc625fbb8c308859aaf8eaa8b9b0bf11ea04d7996114f065dcaf251dad43dc0895cb39b61efa2d'
 const config = {
     headers: { Authorization: `Bearer ${token}` }
@@ -85,14 +85,13 @@ export default function RecentlyCareers() {
                                     </div>
                                     <a href={career.attributes.href} className="inline-flex items-center rounded-md border border-transparent bg-primary_600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary_700 justify-center mt-6"
                                     >
-
-                                        <button
-                                            type="button"
-                                        >
+                                        <Link to="/careersdetail" >
+                                        <button  type="button" >
 
                                             More
 
                                         </button>
+                                        </Link>
                                     </a>
 
                                 </div>
