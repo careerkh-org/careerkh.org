@@ -85,7 +85,7 @@ export default function RecentlyCareers() {
                                     </div>
                                     <Link to="/careersdetail" className="inline-flex items-center rounded-md border border-transparent bg-primary_600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary_700 justify-center mt-6"
                                     >
-                                    <a  >
+                                    <a >
                                         
                                         <button type="button" >
 
