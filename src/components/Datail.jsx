@@ -154,9 +154,6 @@ export default function Detail() {
                 <li className=' pt-3 pl-10'>
                     Use React Hooks in Functional Components
                 </li>
-                <p className=' pl-[100px] pt-3'>
-                    asasadafvjjjckbmkfjhhmbkbnkkkkkkkkkkkkkkkkkkkkkkkkkk
-                </p>
                 <li className=' pt-3 pl-10'>
                     Use The React Context API For Passing Props
                 </li>

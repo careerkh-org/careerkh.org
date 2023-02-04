@@ -48,7 +48,7 @@ export default function RecentlyCareers() {
                                 <div className="flex flex-1 flex-col justify-between bg-white p-6">
                                     <div className="flex-1">
                                         <p className="text-sm font-medium text-primary_600">
-                                            <a href={career.attributes.href} className="hover:underline">
+                                            <a  className="hover:underline">
 
                                                 {career.attributes.industries.data.map((industry) => (
                                                     <h1>{industry.attributes.name}</h1>
@@ -57,7 +57,7 @@ export default function RecentlyCareers() {
 
                                             </a>
                                         </p>
-                                        <a href={career.attributes.href} className="mt-2 block">
+                                        <a  className="mt-2 block">
                                             <p className="text-xl font-semibold text-gray-900">{career.attributes.position}</p>
                                             <p className="my-3 text-base text-gray-500">{career.attributes.caption}</p>
 
@@ -83,17 +83,18 @@ export default function RecentlyCareers() {
 
                                         </a>
                                     </div>
-                                    <a href={career.attributes.href} className="inline-flex items-center rounded-md border border-transparent bg-primary_600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary_700 justify-center mt-6"
+                                    <Link to="/careersdetail" className="inline-flex items-center rounded-md border border-transparent bg-primary_600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary_700 justify-center mt-6"
                                     >
-                                        <Link to="/careersdetail" >
-                                        <button  type="button" >
+                                    <a  >
+                                        
+                                        <button type="button" >
 
                                             More
 
                                         </button>
-                                        </Link>
+                                        
                                     </a>
-
+                                    </Link>
                                 </div>
                             </div>
                         )) :
