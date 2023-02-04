@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
-
+import { Link } from 'react-router-dom';
 function SearchBar({ placeholder, data }) {
     const [ filteredData, setFilteredData ] = useState([]);
     const [ wordEntered, setWordEntered ] = useState("");
@@ -58,8 +58,11 @@ function SearchBar({ placeholder, data }) {
                     <div className="mt-1 bg-white overflow-auto overflow-y-auto block absolute z-10 shadow w-52 h-80">
                         {filteredData.slice(0, 15).map((value, key) => {
                             return (
-                                <a className="pl-2 w-full h-12 flex items-center  text-black hover:text-white hover:bg-primary_700 " href={value.attributes.href} target="_blank">
+                                
+                                <a className="pl-2 w-full h-12 flex items-center  text-black hover:text-white hover:bg-primary_700 " >
+                                    <Link to='/careersdetail'>
                                     <p>{value.attributes.caption} </p>
+                                    </Link>
                                 </a>
                             );
                         })}
